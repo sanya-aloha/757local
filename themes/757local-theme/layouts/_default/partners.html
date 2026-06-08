@@ -116,7 +116,7 @@
       <h2 class="sec-title">Pick the engine that fits <em>your</em> growth.</h2>
     </div>
     <div class="tier-grid stagger">
-      {{ range hugo.Data.tiers }}
+      {{ range .Site.Data.tiers }}
       <article class="tier{{ if .featured }} tier-featured{{ end }}" style="--clr:var(--{{ .accent }})">
         {{ if .featured }}<div class="tier-flag">Most Popular</div>{{ end }}
         <div class="tier-tag">{{ .tag }}</div>

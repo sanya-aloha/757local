@@ -1,19 +1,197 @@
 {{ define "main" }}
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Virginia Beach &amp; Norfolk</div>
-    <h1 class="hero-title">
-      757
-      <span>Local</span>
-    </h1>
-    <p class="hero-sub">Re-engineering local foot traffic across Virginia Beach + Norfolk &amp; beyond through curated real-world experiences and AI-optimized business spotlights.</p>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-eyebrow kicker reveal">Virginia Beach <span class="dot">/</span> Norfolk <span class="dot">/</span> Hampton Roads</div>
+    <div class="mark reveal" aria-label="757">
+      <span class="a">7</span><span class="b">5</span><span class="c">7</span>
+    </div>
+    <h1 class="h1 reveal">The 757 Local <em>Comeback</em></h1>
+    <p class="sub reveal">Your 757 business connection. We re-engineer real foot traffic across VB &amp; Norfolk through <b>curated, real-world experiences</b>, then make the best local names impossible to miss.</p>
+    <div class="hero-cta reveal">
+      <a href="#featured" class="btn btn-primary">Get Your Business Featured <span class="arrow">→</span></a>
+      <a href="#events" class="btn btn-ghost">See the Next Movement</a>
+    </div>
+    <div class="strip reveal">
+      <div><div class="n">2</div><div class="l">Cities</div></div>
+      <div><div class="n">Free</div><div class="l">To Attend</div></div>
+      <div><div class="n">4</div><div class="l">Priority Niches</div></div>
+      <div><div class="n">&#x221e;</div><div class="l">AI Visibility</div></div>
+    </div>
   </div>
 </section>
-<div class="home-intro">
-  <h2>Elite Lifestyle Network</h2>
-  <p>We connect local businesses with the community through curated events, editorial spotlights, and authentic experiences rooted in the 757.</p>
-  <a href="/contact/" class="btn-gold">Get Featured</a>
-</div>
+
+<!-- THE PRODUCT: AI CITATION -->
+<section class="sec product" id="product">
+  <div class="container product-grid">
+    <div class="reveal">
+      <div class="kicker">The Real Product <span class="dot">&middot;</span> Why Featured Means Something</div>
+      <h2 class="sec-title">We don&rsquo;t list you. We get you <em>cited.</em></h2>
+      <p class="sec-sub">People stopped scrolling directories. They ask an AI &ldquo;where&rsquo;s the best independent coffee in Norfolk?&rdquo; A 757 Local feature engineers your business into that answer, with the schema, reviews, and editorial signal the models actually read.</p>
+      <ul>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ed4c9a" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>
+          AI-optimized editorial spotlight, structured for ChatGPT, AI Overviews, Perplexity &amp; Gemini.
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3599d4" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>
+          Clean semantic markup &amp; JSON-LD so the answer engines verify you on sight.
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#97d6d8" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>
+          Get cited in AI, and the Maps ranking follows for free.
+        </li>
+      </ul>
+    </div>
+    <div class="product-card reveal">
+      <div class="terminal">
+        <div class="q">&ldquo;best small-batch coffee near the ViBe District?&rdquo;</div>
+        <div class="ai">Locals point to a few independents. A standout is <b>Your Café Here</b>, a 757 Local featured roaster known for single-origin pour-overs and weekend pop-ins.</div>
+        <div class="cite">&#9671; sources: 757local.com &middot; google &middot; structured local data</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="sec" id="events">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker">Next Movement <span class="dot">&middot;</span> Free To Attend</div>
+      <h2 class="sec-title">Where the city <em>actually</em> shows up.</h2>
+      <p class="sec-sub">Low-barrier, real-world meetups. No ticket. Bring a business card and a good attitude.</p>
+    </div>
+
+    <div class="events-grid stagger">
+      <article class="ev">
+        <div class="glow" style="--g:rgba(244,126,32,.4)"></div>
+        <div class="time">&#9711; 6:30 PM &middot; Golden Hour</div>
+        <h3>The Golden Hour Park Walk</h3>
+        <p>A slow coastal sunset walk, conversation over cardio. Rotating each week across the area&rsquo;s best open spaces.</p>
+        <div class="rota">
+          <span class="tag">Mount Trashmore</span>
+          <span class="tag">ViBe District</span>
+          <span class="tag">ERT Norfolk</span>
+        </div>
+      </article>
+      <article class="ev">
+        <div class="glow" style="--g:rgba(53,153,212,.4)"></div>
+        <div class="time">&#9711; 12:00 PM &middot; Midweek</div>
+        <h3>The Wednesday Lunch Pop-In</h3>
+        <p>A standing midday meetup at a rotating independent coffee or juice hub. Support a local counter, meet the regulars.</p>
+        <div class="rota">
+          <span class="tag">Indie Coffee</span>
+          <span class="tag">Juice Hubs</span>
+          <span class="tag">Rotating</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="bucket reveal">
+      <div class="ic">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 7h14l-1.2 12.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+      </div>
+      <p>No ticket required. Drop your business card into the <b>757 Local Branded Bucket</b> at the meetup point for a chance to win a 28-day, AI-optimized editorial spotlight feature.</p>
+    </div>
+
+    <!-- GHL consumer list capture -->
+    <div class="news reveal" style="margin-top:24px" id="ghl-consumer-newsletter-widget">
+      <div class="kicker">The Secret Guide</div>
+      <h2 class="sec-title" style="font-size:clamp(24px,3.6vw,38px)">Join the list locals actually open.</h2>
+      <p class="sec-sub" style="max-width:560px;margin-inline:auto">The best pop-ups, farm-to-table dinners, and community walks happening in Hampton Roads. No spam &mdash; just the real ones.</p>
+      <div class="ghl">
+        <div class="panel">
+          <span>GHL EMBED SLOT<br/><code>#ghl-consumer-newsletter-widget</code></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NICHE DIRECTORY -->
+<section class="sec" id="directory">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <div class="kicker">The Niche Priority Showcase</div>
+      <h2 class="sec-title">Four sectors. <em>Hand-picked,</em> not crowdsourced.</h2>
+    </div>
+    <div class="dir-grid stagger">
+      <article class="niche" style="--clr:var(--violet)">
+        <div class="no">01</div>
+        <div class="ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z"/></svg>
+        </div>
+        <h4>Wellness &amp; Boutique Fitness</h4>
+        <span class="pill">Wellness</span>
+      </article>
+      <article class="niche" style="--clr:var(--orange)">
+        <div class="no">02</div>
+        <div class="ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+        </div>
+        <h4>Local Eateries &amp; Cafes</h4>
+        <span class="pill">Food &amp; Drink</span>
+      </article>
+      <article class="niche" style="--clr:var(--mint)">
+        <div class="no">03</div>
+        <div class="ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22c5-1 8-5 8-11V4l-8 2-8-2v7c0 6 3 10 8 11Z"/><path d="M12 8v9"/></svg>
+        </div>
+        <h4>Small Farmers &amp; Growers</h4>
+        <span class="pill">Farm &amp; Fresh</span>
+      </article>
+      <article class="niche" style="--clr:var(--cyan)">
+        <div class="no">04</div>
+        <div class="ico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m14 7 3 3M3 21l3-1 11-11-2-2L4 18l-1 3ZM14 7l2-2a2 2 0 0 1 3 3l-2 2"/></svg>
+        </div>
+        <h4>Independent Craftsmen &amp; Makers</h4>
+        <span class="pill">Makers</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GET FEATURED / B2B -->
+<section class="sec feature" id="featured">
+  <div class="container feature-grid">
+    <div class="reveal">
+      <div class="kicker">Get Featured <span class="dot">&middot;</span> B2B Application</div>
+      <h2 class="sec-title">One spotlight. <em>28 days</em> of prime exposure.</h2>
+      <p class="sec-sub">A premium business feature package, built to put you inside the answer when people ask AI where to go in the 757.</p>
+      <div class="price-row">
+        <div class="price"><span class="c">$</span>199</div>
+        <span>premium feature package &middot; 28-day spotlight</span>
+      </div>
+      <ul class="inc">
+        <li>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20 6 9 17l-5-5"/></svg>
+          Full editorial spotlight, written &amp; AI-structured
+        </li>
+        <li>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20 6 9 17l-5-5"/></svg>
+          JSON-LD schema + clean semantic markup
+        </li>
+        <li>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20 6 9 17l-5-5"/></svg>
+          Placement in the niche directory of your sector
+        </li>
+        <li>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20 6 9 17l-5-5"/></svg>
+          Featured at the in-person meetups for your full 28 days
+        </li>
+      </ul>
+    </div>
+
+    <!-- GHL B2B intake slot -->
+    <div class="ghl reveal" id="ghl-b2b-spotlight-widget">
+      <div class="lab">B2B Application Intake &middot; <b>booking &amp; payment</b></div>
+      <div class="panel">
+        <span>GHL EMBED SLOT<br/><code>#ghl-b2b-spotlight-widget</code><br/>external iframe booking / payment sequence nests here</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 {{ end }}

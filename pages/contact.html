@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | 757 Local</title>
+  <meta name="description" content="Get in touch with 757 Local — Virginia Beach & Norfolk's elite lifestyle network." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c96e;
+      --black: #0a0a0a;
+      --dark: #111111;
+      --dark2: #1a1a1a;
+      --gray: #2a2a2a;
+      --text: #e8e8e8;
+      --muted: #888;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 52vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 3rem 4rem;
+      overflow: hidden;
+      margin-top: 0;
+      padding-top: 100px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(201,168,76,0.05) 0%, transparent 60%),
+        linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: linear-gradient(180deg, transparent 0%, black 40%, black 70%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 10vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+
+    .hero-title span {
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      max-width: 440px;
+      line-height: 1.8;
+    }
+
+    /* MAIN LAYOUT */
+    .contact-section {
+      padding: 5rem 3rem 8rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    /* LEFT PANEL */
+    .contact-info h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 3rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .info-item:last-child { border-bottom: none; }
+
+    .info-icon {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .info-icon svg { width: 18px; height: 18px; }
+
+    .info-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .info-value {
+      font-size: 0.85rem;
+      color: var(--text);
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 3rem;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,76,0.06);
+    }
+
+    .social-btn svg { width: 16px; height: 16px; }
+
+    /* FORM */
+    .contact-form {
+      background: var(--dark2);
+      border: 1px solid rgba(201,168,76,0.12);
+      padding: 3rem;
+      position: relative;
+    }
+
+    .contact-form::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .form-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .form-header h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-header p {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--gray);
+      border: 1px solid rgba(201,168,76,0.15);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      padding: 0.9rem 1.1rem;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+      appearance: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(136,136,136,0.5);
+      font-size: 0.78rem;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(201,168,76,0.5);
+      background: rgba(42,42,42,0.8);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.7;
+    }
+
+    .form-group select option {
+      background: var(--dark2);
+    }
+
+    .select-wrap {
+      position: relative;
+    }
+
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      pointer-events: none;
+      font-size: 0.8rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 1.1rem 2rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .submit-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+      transform: translateX(-100%);
+      transition: transform 0.5s;
+    }
+
+    .submit-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:hover::after {
+      transform: translateX(100%);
+    }
+
+    /* BOTTOM STRIP */
+    .bottom-strip {
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .bottom-strip p {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: rgba(136,136,136,0.4);
+      text-transform: uppercase;
+    }
+
+    .back-link {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s;
+    }
+
+    .back-link:hover { gap: 0.8rem; }
+
+    /* ANIMATE IN */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content, .contact-info, .contact-form {
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .contact-info { animation-delay: 0.15s; }
+    .contact-form { animation-delay: 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 1.5rem 3rem; }
+      .contact-section {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem 1.5rem 5rem;
+      }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form { padding: 2rem 1.5rem; }
+      .bottom-strip { padding: 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">757 Local</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Spotlights</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Get In Touch</div>
+      <h1 class="hero-title">
+        Let's
+        <span>Connect</span>
+      </h1>
+      <p class="hero-sub">Ready to spotlight your business or partner with Virginia Beach & Norfolk's elite local network? We'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+
+    <!-- LEFT INFO -->
+    <div class="contact-info">
+      <h2>Reach Us</h2>
+      <p>Whether you're a local business, community organizer, or media partner — let's build something real together in the 757.</p>
+
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="info-label">Location</div>
+          <div class="info-value">Virginia Beach & Norfolk, VA<br>757 Area — Always Local</div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="info-label">Email</div>
+          <div class="info-value">hello@757local.com</div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div>
+          <div class="info-label">Business Spotlights</div>
+          <div class="info-value">AI-optimized editorial features<br>for local businesses in the 757</div>
+        </div>
+      </div>
+
+      <div class="social-row">
+        <!-- Instagram -->
+        <a href="#" class="social-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+        </a>
+        <!-- TikTok -->
+        <a href="#" class="social-btn" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.84a8.2 8.2 0 004.79 1.53V6.88a4.85 4.85 0 01-1.02-.19z"/>
+          </svg>
+        </a>
+        <!-- X/Twitter -->
+        <a href="#" class="social-btn" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="contact-form">
+      <div class="form-header">
+        <h3>Send A Message</h3>
+        <p>We respond within 24 hours</p>
+      </div>
+
+      <form action="#" method="POST" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Your first name" required />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Your last name" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="business">Business Name (Optional)</label>
+          <input type="text" id="business" name="business" placeholder="Your business name" />
+        </div>
+
+        <div class="form-group">
+          <label for="inquiry">Inquiry Type</label>
+          <div class="select-wrap">
+            <select id="inquiry" name="inquiry" required>
+              <option value="" disabled selected>Select inquiry type</option>
+              <option value="spotlight">Business Spotlight Feature</option>
+              <option value="event">Event Partnership</option>
+              <option value="media">Media & Press</option>
+              <option value="advertising">Advertising</option>
+              <option value="general">General Inquiry</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your inquiry..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+      </form>
+    </div>
+
+  </section>
+
+  <div class="bottom-strip">
+    <p>&copy; 2026 757 Local &mdash; Virginia Beach & Norfolk</p>
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#2a6b3a';
+      btn.style.color = '#fff';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 4000);
+    }
+  </script>
+
+</body>
+</html>

@@ -7,21 +7,50 @@
   <meta name="description" content="Virginia Beach &amp; Norfolk&#39;s Elite Lifestyle Network" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,500&family=Outfit:wght@200;300;400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet" />
   
   <link rel="stylesheet" href="/css/main.css" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"757 Local",
+    "url":"https://757local.pages.dev",
+    "areaServed":["Virginia Beach","Norfolk","Hampton Roads"],
+    "description":"Curated real-world community experiences and AI-optimized editorial spotlights for independent businesses across the 757.",
+    "knowsAbout":["Wellness & Boutique Fitness","Local Eateries & Cafes","Small Farmers & Growers","Independent Craftsmen & Makers"]
+  }
+  </script>
 </head>
 <body>
 
-  <nav>
-    <a href="/" class="nav-logo">757 Local</a>
-    <ul class="nav-links">
-      <li><a href="/" >Home</a></li>
-      <li><a href="/spotlights/" >Spotlights</a></li>
-      <li><a href="/events/" >Events</a></li>
-      <li><a href="/contact/" >Contact</a></li>
-    </ul>
-  </nav>
+
+<div class="beams" aria-hidden="true">
+  <span class="beam-v" style="--c:var(--fuchsia);--d:9s;--delay:0s;left:18%"></span>
+  <span class="beam-v" style="--c:var(--cyan);--d:13s;--delay:3s;left:62%"></span>
+  <span class="beam-v" style="--c:var(--mint);--d:16s;--delay:7s;left:82%"></span>
+  <span class="beam-h" style="--c:var(--orange);--d:14s;--delay:2s;top:30%"></span>
+  <span class="beam-h" style="--c:var(--violet);--d:18s;--delay:9s;top:68%"></span>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/">
+        <span class="num">757</span><span class="loc">Local</span>
+      </a>
+      <nav class="navlinks">
+        <a href="#events">Upcoming Meetups</a>
+        <a href="#directory">The Niche Directory</a>
+        <a href="#featured">Get Featured</a>
+        <a href="#featured" class="navcta">Apply</a>
+      </nav>
+      <button class="burger" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
 
   <main>
     
@@ -32,11 +61,41 @@
   </main>
 
   <footer>
-    <div class="footer-inner">
-      <p>&copy; 2026 757 Local &mdash; Virginia Beach &amp; Norfolk</p>
-      <a href="/" class="footer-logo">757 Local</a>
+    <div class="container foot">
+      <div>
+        <div class="wordmark" aria-label="757 Local">
+          <span class="w1">7</span><span class="w2">5</span><span class="w3">7</span>
+          <span style="width:.4ch;display:inline-block"></span>
+          <span class="w4">LO</span><span class="w5">CAL</span>
+        </div>
+        <p style="color:var(--muted);font-size:13px;margin-top:12px;max-width:340px">
+          The 757's tastemaker. Real-world experiences, AI-visible local business.
+        </p>
+      </div>
+      <div class="meta">
+        <p>Virginia Beach &middot; Norfolk &middot; Hampton Roads</p>
+        <p style="margin-top:8px"><a href="#featured">Get Featured</a> &middot; <a href="#events">Meetups</a> &middot; <a href="#directory">Directory</a></p>
+        <p style="margin-top:14px;opacity:.6">&copy; 2026 757 Local &mdash; Phase 1 Relaunch</p>
+      </div>
     </div>
   </footer>
+
+</div>
+
+<script>
+ 
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.16});
+document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
+
+ 
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.hero .reveal').forEach((el,i)=>{
+    setTimeout(()=>el.classList.add('in'), 120 + i*110);
+  });
+});
+</script>
 
 </body>
 </html>

@@ -287,6 +287,20 @@ footer{border-top:1px solid var(--edge-soft);padding:64px 0 50px;margin-top:40px
 .wordmark .w5{-webkit-text-stroke:.8px var(--violet)}
 .foot .meta{color:var(--muted);font-size:12.5px;letter-spacing:.1em;text-align:right}
 .foot .meta a{color:var(--body);text-decoration:none}
+.foot-cities{margin-top:8px;font-size:10.5px;letter-spacing:.08em;color:var(--muted);opacity:.7;line-height:1.7}
+
+/* tentative event badge */
+.ev-status{position:absolute;top:16px;right:16px;z-index:2;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;padding:5px 11px;border-radius:30px;border:1px solid var(--edge);
+  color:var(--muted);background:rgba(255,255,255,.04)}
+
+/* instagram cta */
+.ig-cta{margin-top:24px;text-align:center}
+.ig-link{display:inline-flex;align-items:center;gap:10px;color:var(--body);text-decoration:none;
+  font-size:14px;letter-spacing:.02em;padding:12px 22px;border:1px solid var(--edge);border-radius:30px;
+  transition:border-color .3s,color .3s}
+.ig-link:hover{border-color:rgba(255,255,255,.22);color:var(--white)}
+.ig-link b{color:var(--white);font-weight:600}
 
 /* ============ REVEAL ============ */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}

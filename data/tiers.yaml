@@ -1,4 +1,4 @@
-# 757 Local partner tiers — edit prices/features here; the /partners pricing table reads from this file.
+# 757 Local partner tiers, edit prices/features here; the /partners pricing table reads from this file.
 - tag: "Tier 1"
   name: "The AI Directory"
   price: 49
@@ -11,7 +11,7 @@
     - "Permanent directory page, structured for ChatGPT, AI Overviews, Perplexity & Gemini"
     - "Clean JSON-LD schema so answer engines verify you on sight"
     - "Placement in your sector's Niche Directory"
-    - "Access to the 757 Local Perks B2B network — save on other members' services"
+    - "Access to the 757 Local Perks B2B network, save on other members' services"
 
 - tag: "Tier 2"
   name: "The Co-Op Promo Partner"
@@ -24,7 +24,7 @@
   features:
     - "Everything in The AI Directory"
     - "Monthly Spotlight Broadcast to the consumer list (SMS + email)"
-    - "Monthly raw video asset kit — aesthetic vertical B-roll for TikTok & Reels"
+    - "Monthly raw video asset kit, aesthetic vertical B-roll for TikTok & Reels"
     - "Priority routing of meetup foot traffic to your storefront"
 
 - tag: "Tier 3"
@@ -37,7 +37,7 @@
   cta: "Apply to Host"
   features:
     - "Everything in The Co-Op Promo Partner"
-    - "One dedicated Destination Event per quarter — hosted at your location"
+    - "One dedicated Destination Event per quarter, hosted at your location"
     - "We bring the crowd directly to you, on-site"
     - "Full editorial + video coverage of your event"
   scarcity: "Only 4 host slots per quarter"

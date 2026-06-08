@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tags | 757 Local</title>
-  <meta name="description" content="Virginia Beach &amp; Norfolk&#39;s Elite Lifestyle Network" />
+  <title>Enter the 757 Local Raffle | 757 Local</title>
+  <meta name="description" content="Scan, enter, win. Drop into the 757 Local raffle at tonight&#39;s meetup for a shot at the prize, and get the local list locals actually open." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,500&family=Outfit:wght@200;300;400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet" />
@@ -54,15 +54,73 @@
 
   <main>
     
-  <h1>Tags</h1>
-  
-  
-    <h2><a href="/tags/blue/">Blue</a></h2>
-  
-    <h2><a href="/tags/green/">Green</a></h2>
-  
-    <h2><a href="/tags/red/">Red</a></h2>
-  
+
+<section class="sec" id="raffle" style="padding-top:72px">
+  <div class="container" style="max-width:600px">
+    <div class="news reveal in">
+      <div class="kicker">757 Local Raffle <span class="dot">&middot;</span> Tonight</div>
+      <h2 class="sec-title" style="font-size:clamp(28px,5vw,42px)">You scanned the bucket. <em>Now enter.</em></h2>
+      <p class="sec-sub" style="max-width:440px;margin-inline:auto">One quick entry gets you in the draw and onto the list locals actually open. No spam, just the real ones.</p>
+
+      <form class="lead-form" data-form-type="raffle" style="margin-top:28px">
+        <input type="hidden" name="form_type" value="raffle" />
+        <input type="hidden" name="event_attended" id="r-event" value="" />
+        <div class="form-fields" style="display:flex;flex-direction:column;gap:16px">
+          <div class="field">
+            <label for="r-name">First Name</label>
+            <input id="r-name" name="first_name" type="text" placeholder="Your name" required />
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="r-phone">Mobile</label>
+              <input id="r-phone" name="phone" type="tel" placeholder="(757) 000-0000" required />
+            </div>
+            <div class="field">
+              <label for="r-zip">Zip Code</label>
+              <input id="r-zip" name="zip" type="text" inputmode="numeric" placeholder="234__" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="r-email">Email (optional)</label>
+            <input id="r-email" name="email" type="email" placeholder="you@email.com" />
+          </div>
+          <div class="field">
+            <label>What do you shop local for?</label>
+            <div class="checks">
+              <label><input type="checkbox" name="buying_preferences" value="Wellness & Fitness" /><span>Wellness &amp; Fitness</span></label>
+              <label><input type="checkbox" name="buying_preferences" value="Food & Drink" /><span>Food &amp; Drink</span></label>
+              <label><input type="checkbox" name="buying_preferences" value="Farm & Fresh" /><span>Farm &amp; Fresh</span></label>
+              <label><input type="checkbox" name="buying_preferences" value="Local Makers" /><span>Local Makers</span></label>
+              <label><input type="checkbox" name="buying_preferences" value="Events & Nightlife" /><span>Events &amp; Nightlife</span></label>
+              <label><input type="checkbox" name="buying_preferences" value="Beauty & Self-Care" /><span>Beauty &amp; Self-Care</span></label>
+            </div>
+          </div>
+          <input type="text" name="company_website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
+          <div class="field consent">
+            <input id="r-consent" name="consent" type="checkbox" />
+            <label for="r-consent">I agree to receive SMS &amp; email from 757 Local, including the winner announcement.</label>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self:stretch;justify-content:center">Enter the Raffle <span class="arrow">→</span></button>
+        </div>
+        <div class="form-status"></div>
+        <div class="form-done" style="display:none">
+          <div class="chk"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h4>You&rsquo;re entered.</h4>
+          <p>Good luck. We&rsquo;ll text the winner and keep you posted on the next 757 Local movement.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+ 
+(function(){
+  var ev = new URLSearchParams(window.location.search).get('event');
+  if(ev){ var el = document.getElementById('r-event'); if(el) el.value = ev; }
+})();
+</script>
+
 
   </main>
 

@@ -99,6 +99,45 @@ window.addEventListener('load',()=>{
     setTimeout(()=>el.classList.add('in'), 120 + i*110);
   });
 });
+
+ 
+document.querySelectorAll('form.lead-form').forEach(function(f){
+  f.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var status = f.querySelector('.form-status');
+    var btn = f.querySelector('button[type=submit]');
+    var fields = f.querySelector('.form-fields');
+    var data = {};
+    new FormData(f).forEach(function(v,k){
+      if(k==='consent') return;
+      if(Object.prototype.hasOwnProperty.call(data,k)){ data[k]=[].concat(data[k],v); }
+      else { data[k]=v; }
+    });
+    var consentBox = f.querySelector('[name=consent]');
+    data.consent = consentBox ? consentBox.checked : false;
+    if(consentBox && !consentBox.checked){
+      status.className='form-status err';
+      status.textContent='Please agree to be contacted so we can reach you.';
+      return;
+    }
+    var orig = btn.textContent;
+    btn.disabled=true; btn.textContent='Sending…'; status.textContent=''; status.className='form-status';
+    try{
+      var r = await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      var j = await r.json();
+      if(r.ok && j.ok){
+        if(fields) fields.style.display='none';
+        var done = f.querySelector('.form-done'); if(done) done.style.display='block';
+        status.className='form-status ok';
+        status.textContent = done ? '' : (f.getAttribute('data-success') || "You're in.");
+      } else { throw new Error(j.error||'error'); }
+    }catch(err){
+      status.className='form-status err';
+      status.textContent='Something went wrong. Please try again.';
+      btn.disabled=false; btn.textContent=orig;
+    }
+  });
+});
 </script>
 
 </body>

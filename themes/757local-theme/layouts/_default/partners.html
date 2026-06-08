@@ -176,12 +176,75 @@
       </ul>
     </div>
 
-    <!-- GHL B2B intake slot -->
+    <!-- B2B custom intake form -->
     <div class="ghl reveal" id="ghl-b2b-spotlight-widget">
-      <div class="lab">B2B Application Intake &middot; <b>booking &amp; payment</b></div>
-      <div class="panel">
-        <span>GHL EMBED SLOT<br/><code>#ghl-b2b-spotlight-widget</code><br/>external iframe booking / payment sequence nests here</span>
-      </div>
+      <div class="lab">Partner Application &middot; <b>we reply within 1 business day</b></div>
+      <form class="lead-form" data-form-type="b2b" style="margin-top:20px">
+        <input type="hidden" name="form_type" value="b2b" />
+        <div class="form-fields" style="display:flex;flex-direction:column;gap:16px">
+          <div class="row">
+            <div class="field">
+              <label for="b-fname">First Name</label>
+              <input id="b-fname" name="first_name" type="text" placeholder="First" required />
+            </div>
+            <div class="field">
+              <label for="b-lname">Last Name</label>
+              <input id="b-lname" name="last_name" type="text" placeholder="Last" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="b-biz">Business Name</label>
+            <input id="b-biz" name="business_name" type="text" placeholder="Your business" required />
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="b-email">Email</label>
+              <input id="b-email" name="email" type="email" placeholder="you@business.com" required />
+            </div>
+            <div class="field">
+              <label for="b-phone">Phone</label>
+              <input id="b-phone" name="phone" type="tel" placeholder="(757) 000-0000" required />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="b-sector">Your Sector</label>
+              <select id="b-sector" name="business_sector" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="Wellness &amp; Boutique Fitness">Wellness &amp; Boutique Fitness</option>
+                <option value="Local Eateries &amp; Cafes">Local Eateries &amp; Cafes</option>
+                <option value="Small Farmers &amp; Growers">Small Farmers &amp; Growers</option>
+                <option value="Independent Craftsmen &amp; Makers">Independent Craftsmen &amp; Makers</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="b-tier">Tier of Interest</label>
+              <select id="b-tier" name="partner_tier" required>
+                <option value="" disabled selected>Select a tier</option>
+                <option value="Tier 1 - AI Directory ($49/mo)">Tier 1 &middot; AI Directory ($49/mo)</option>
+                <option value="Tier 2 - Co-Op Promo Partner ($199/mo)">Tier 2 &middot; Co-Op Promo Partner ($199/mo)</option>
+                <option value="Tier 3 - Ultimate Event Host ($999/mo)">Tier 3 &middot; Ultimate Event Host ($999/mo)</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="b-msg">Anything we should know? (optional)</label>
+            <textarea id="b-msg" name="message" placeholder="Tell us about your goals"></textarea>
+          </div>
+          <input type="text" name="company_website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
+          <div class="field consent">
+            <input id="b-consent" name="consent" type="checkbox" />
+            <label for="b-consent">I agree to be contacted by 757 Local about partnering.</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Application <span class="arrow">→</span></button>
+        </div>
+        <div class="form-status"></div>
+        <div class="form-done" style="display:none">
+          <div class="chk"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h4>Application received.</h4>
+          <p>We&rsquo;ll be in touch within one business day to get you live.</p>
+        </div>
+      </form>
     </div>
   </div>
 </section>

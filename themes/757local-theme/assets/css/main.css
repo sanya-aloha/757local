@@ -91,10 +91,15 @@ header{
 }
 .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
 .brand{display:flex;align-items:center;gap:.6ch;text-decoration:none}
-.brand .num{font-family:var(--logo);font-weight:700;font-size:18px;letter-spacing:.04em;
-  -webkit-text-stroke:.6px var(--cyan);color:transparent}
-.brand .loc{font-family:var(--logo);font-weight:400;color:var(--white);
+.brand .num{font-family:var(--logo);font-weight:700;font-size:18px;letter-spacing:.04em}
+.brand .num span{color:transparent}
+.brand .num .b1{-webkit-text-stroke:.6px var(--cyan)}
+.brand .num .b2{-webkit-text-stroke:.6px var(--fuchsia)}
+.brand .num .b3{-webkit-text-stroke:.6px var(--orange)}
+.brand .loc{font-family:var(--logo);font-weight:500;
   font-size:13px;letter-spacing:.22em;text-transform:uppercase}
+.brand .loc .b4{color:var(--mint)}
+.brand .loc .b5{color:var(--violet)}
 .navlinks{display:flex;gap:34px;align-items:center}
 .navlinks a{
   color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:.12em;

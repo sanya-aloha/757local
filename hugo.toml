@@ -1,0 +1,8 @@
+baseURL = 'https://757local.pages.dev/'
+locale = 'en-us'
+title = '757 Local'
+theme = '757local-theme'
+
+[params]
+  description = "Virginia Beach & Norfolk's Elite Lifestyle Network"
+  tagline = "Re-engineering local foot traffic across the 757"

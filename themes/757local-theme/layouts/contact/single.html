@@ -1,0 +1,126 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Get In Touch</div>
+    <h1 class="hero-title">
+      Let's
+      <span>Connect</span>
+    </h1>
+    <p class="hero-sub">Ready to spotlight your business or partner with Virginia Beach &amp; Norfolk's elite local network? We'd love to hear from you.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="contact-info">
+    <h2>Reach Us</h2>
+    <p>Whether you're a local business, community organizer, or media partner — let's build something real together in the 757.</p>
+
+    <div class="info-item">
+      <div class="info-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <div class="info-label">Location</div>
+        <div class="info-value">Virginia Beach &amp; Norfolk, VA<br>757 Area — Always Local</div>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <div class="info-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="info-label">Email</div>
+        <div class="info-value">hello@757local.com</div>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <div class="info-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div>
+        <div class="info-label">Business Spotlights</div>
+        <div class="info-value">AI-optimized editorial features<br>for local businesses in the 757</div>
+      </div>
+    </div>
+
+    <div class="social-row">
+      <a href="#" class="social-btn" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+      </a>
+      <a href="#" class="social-btn" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.84a8.2 8.2 0 004.79 1.53V6.88a4.85 4.85 0 01-1.02-.19z"/></svg>
+      </a>
+      <a href="#" class="social-btn" aria-label="X">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <div class="form-header">
+      <h3>Send A Message</h3>
+      <p>We respond within 24 hours</p>
+    </div>
+    <form action="#" method="POST" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="fname" placeholder="Your first name" required />
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" placeholder="Your last name" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="business">Business Name (Optional)</label>
+        <input type="text" id="business" name="business" placeholder="Your business name" />
+      </div>
+      <div class="form-group">
+        <label for="inquiry">Inquiry Type</label>
+        <div class="select-wrap">
+          <select id="inquiry" name="inquiry" required>
+            <option value="" disabled selected>Select inquiry type</option>
+            <option value="spotlight">Business Spotlight Feature</option>
+            <option value="event">Event Partnership</option>
+            <option value="media">Media &amp; Press</option>
+            <option value="advertising">Advertising</option>
+            <option value="general">General Inquiry</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about your inquiry..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = '#2a6b3a';
+  btn.style.color = '#fff';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Send Message';
+    btn.style.background = '';
+    btn.style.color = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 4000);
+}
+</script>
+{{ end }}

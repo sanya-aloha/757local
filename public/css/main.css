@@ -448,6 +448,36 @@ footer{border-top:1px solid var(--edge-soft);padding:64px 0 50px;margin-top:40px
 .form-done h4{font-family:var(--serif);color:var(--white);font-weight:500;font-size:24px;margin-bottom:8px}
 .form-done p{color:var(--muted);font-size:15px}
 
+/* ============ VIP INTAKE ============ */
+.vip-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--edge);border-radius:30px;
+  padding:8px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);
+  background:rgba(151,214,216,.06)}
+.vip-badge svg{flex:none}
+.branch-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.branch-card{position:relative;display:block;border:1px solid var(--edge);border-radius:14px;
+  padding:18px 18px 16px;cursor:pointer;transition:border-color .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease);
+  background:rgba(255,255,255,.015)}
+.branch-card input{position:absolute;opacity:0;width:1px;height:1px}
+.branch-card .bc-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.branch-card h4{font-family:var(--serif);font-size:19px;color:var(--white);font-weight:500;margin:6px 0 6px}
+.branch-card p{font-size:12.5px;color:var(--muted);font-weight:300;line-height:1.5}
+.branch-card:hover{border-color:var(--mint)}
+.branch-card:has(input:checked),.branch-card.is-checked{border-color:var(--fuchsia);background:rgba(237,76,154,.07);
+  box-shadow:0 0 0 1px var(--fuchsia),0 0 30px -10px rgba(237,76,154,.7)}
+.branch-card:has(input:checked) .bc-tag,.branch-card.is-checked .bc-tag{color:var(--fuchsia)}
+.branch-card .bc-check{position:absolute;top:16px;right:16px;width:18px;height:18px;border-radius:50%;
+  border:1px solid var(--edge);display:grid;place-items:center;color:transparent;transition:all .2s}
+.branch-card:has(input:checked) .bc-check,.branch-card.is-checked .bc-check{border-color:var(--fuchsia);background:var(--fuchsia);color:#1a0010}
+.vip-code-field input{font-family:ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;
+  font-size:17px;text-align:center}
+.vip-conditional{display:none}
+.vip-conditional.show{display:flex}
+.trial-note{border:1px dashed var(--edge);border-radius:12px;padding:12px 15px;font-size:12.5px;
+  color:var(--muted);font-weight:300;line-height:1.5;display:none}
+.trial-note.show{display:block}
+.trial-note b{color:var(--mint);font-weight:500}
+@media(max-width:560px){.branch-grid{grid-template-columns:1fr}}
+
 /* ============ RESPONSIVE ============ */
 @media(max-width:920px){
   .product-grid,.feature-grid{grid-template-columns:1fr;gap:38px}

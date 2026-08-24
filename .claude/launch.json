@@ -4,7 +4,7 @@
     {
       "name": "757local",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["-e", "require('http').createServer((req,res)=>{const fs=require('fs'),path=require('path');let f=path.join('C:/Users/sanya/Desktop/CLAUDE/757local/public',req.url==='/'?'/index.html':req.url);fs.readFile(f,(e,d)=>{if(e){res.writeHead(404);res.end();}else{const ext=path.extname(f);const m={'html':'text/html','css':'text/css','js':'application/javascript','png':'image/png','jpg':'image/jpeg','svg':'image/svg+xml','ico':'image/x-icon','json':'application/json','xml':'text/xml','txt':'text/plain'};res.writeHead(200,{'Content-Type':m[ext.slice(1)]||'application/octet-stream'});res.end(d);}});}).listen(1313)"],
+      "runtimeArgs": [".claude/dev-server.js"],
       "port": 1313
     }
   ]

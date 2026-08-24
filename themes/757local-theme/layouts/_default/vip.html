@@ -1,0 +1,154 @@
+{{ define "main" }}
+
+<!-- VIP HERO -->
+<section class="hero" style="padding-bottom:60px">
+  <div class="container">
+    <div class="vip-badge reveal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.6L22 9.6l-5 4.9 1.2 7-6.2-3.5-6.2 3.5 1.2-7-5-4.9 7.1-1L12 2z"/></svg>
+      VIP Card Scanned
+    </div>
+    <h1 class="h1 reveal" style="margin-top:20px">You&rsquo;re in the <em>circle.</em></h1>
+    <p class="sub reveal">757 Local Trading Co. is a private concierge network and merchant directory for Hampton Roads. Tell us who you are and we&rsquo;ll get your account moving today.</p>
+  </div>
+</section>
+
+<!-- VIP INTAKE -->
+<section class="sec feature" id="vip-intake" style="padding-top:0">
+  <div class="container" style="max-width:640px">
+    <div class="news reveal in" style="text-align:left">
+      <div class="lab">VIP Account Activation &middot; <b>takes about a minute</b></div>
+
+      <form class="lead-form" data-form-type="vip" style="margin-top:22px">
+        <input type="hidden" name="form_type" value="vip" />
+
+        <div class="form-fields" style="display:flex;flex-direction:column;gap:20px">
+
+          <div class="field">
+            <label>Which one are you?</label>
+            <div class="branch-grid" id="vip-branch-grid">
+              <label class="branch-card" for="vip-branch-vendor">
+                <input type="radio" name="account_type" id="vip-branch-vendor" value="Merchant-Vendor" required />
+                <span class="bc-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <div class="bc-tag">Merchant</div>
+                <h4>I run a business</h4>
+                <p>Get a directory profile on 757local.com plus a private concierge account for your own runs.</p>
+              </label>
+              <label class="branch-card" for="vip-branch-client">
+                <input type="radio" name="account_type" id="vip-branch-client" value="Concierge Client" required />
+                <span class="bc-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <div class="bc-tag">Concierge</div>
+                <h4>I need concierge service</h4>
+                <p>A private VIP account only, no public profile. Estate, marine, aviation &amp; corporate clients.</p>
+              </label>
+            </div>
+          </div>
+
+          <div class="trial-note" id="vip-trial-note">
+            <b>$100 trial credit included.</b> Your first run is on us, single use, expires 30 days from activation. No commitment.
+          </div>
+
+          <div class="field vip-code-field">
+            <label for="v-code">Your VIP Access Code</label>
+            <input id="v-code" name="vip_code" type="text" placeholder="757-XXXX-XXXX" required autocomplete="off" />
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="v-fname">First Name</label>
+              <input id="v-fname" name="first_name" type="text" placeholder="First" required />
+            </div>
+            <div class="field">
+              <label for="v-lname">Last Name</label>
+              <input id="v-lname" name="last_name" type="text" placeholder="Last" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="v-phone">Mobile</label>
+              <input id="v-phone" name="phone" type="tel" placeholder="(757) 000-0000" required />
+            </div>
+            <div class="field">
+              <label for="v-email">Email</label>
+              <input id="v-email" name="email" type="email" placeholder="you@email.com" required />
+            </div>
+          </div>
+
+          <div class="field vip-conditional" id="vip-business-field">
+            <label for="v-biz">Business Name</label>
+            <input id="v-biz" name="business_name" type="text" placeholder="Your business" />
+          </div>
+
+          <div class="field">
+            <label for="v-niche">Niche</label>
+            <select id="v-niche" name="niche">
+              <option value="" disabled selected>Select one</option>
+              <option value="Aviation-FBO">Aviation / FBO</option>
+              <option value="Marine-Yacht">Marine / Yacht</option>
+              <option value="Corporate">Corporate</option>
+              <option value="Estate">Estate</option>
+              <option value="Local Merchant">Local Merchant</option>
+            </select>
+          </div>
+
+          <input type="text" name="company_website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
+
+          <div class="field consent">
+            <input id="v-consent" name="consent" type="checkbox" required />
+            <label for="v-consent">By providing your mobile number you agree to receive service and account text messages from 757 Local Trading Co. Message and data rates may apply. Message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy/" style="color:var(--mint)">Privacy Policy</a> and <a href="/sms-terms/" style="color:var(--mint)">SMS Terms</a>.</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="align-self:stretch;justify-content:center">Activate My Account <span class="arrow">→</span></button>
+        </div>
+
+        <div class="form-status"></div>
+        <div class="form-done" style="display:none">
+          <div class="chk"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h4>You&rsquo;re activated.</h4>
+          <p>We&rsquo;re confirming your VIP code now. You&rsquo;ll hear from us shortly to finish setting up your account.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var radios = document.querySelectorAll('input[name="account_type"]');
+  var bizField = document.getElementById('vip-business-field');
+  var bizInput = document.getElementById('v-biz');
+  var trialNote = document.getElementById('vip-trial-note');
+
+  function sync(){
+    var val = '';
+    radios.forEach(function(r){
+      var card = r.closest('.branch-card');
+      if(card) card.classList.toggle('is-checked', r.checked);
+      if(r.checked) val = r.value;
+    });
+
+    if(val === 'Merchant-Vendor'){
+      bizField.classList.add('show');
+      bizInput.required = true;
+      trialNote.classList.remove('show');
+    } else if(val === 'Concierge Client'){
+      bizField.classList.remove('show');
+      bizInput.required = false;
+      trialNote.classList.add('show');
+    } else {
+      bizField.classList.remove('show');
+      bizInput.required = false;
+      trialNote.classList.remove('show');
+    }
+  }
+
+  radios.forEach(function(r){ r.addEventListener('change', sync); });
+  sync();
+
+  /* Prefill VIP code from the card URL: /vip/?code=757-XXXX-XXXX */
+  var code = new URLSearchParams(window.location.search).get('code');
+  if(code){ var el = document.getElementById('v-code'); if(el) el.value = code; }
+})();
+</script>
+
+{{ end }}

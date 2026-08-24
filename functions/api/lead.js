@@ -5,7 +5,7 @@
  * env secret (GHL_TOKEN). Never expose it client-side.
  *
  * Route: POST /api/lead
- * Body (JSON): { form_type: "consumer" | "raffle" | "b2b", ...fields }
+ * Body (JSON): { form_type: "consumer" | "raffle" | "b2b" | "vip", ...fields }
  */
 
 const GHL_BASE = "https://services.leadconnectorhq.com";
@@ -19,6 +19,27 @@ const CF = {
   signup_source:      "LyAFoFh4e50PRiaIMLkC", // SINGLE_OPTIONS
   marketing_consent:  "URsReiu9FJ4wNPvo9L1l", // CHECKBOX
   event_attended:     "xKDHQbGUiLlzE8qGJS8s", // TEXT
+};
+
+// 757LTC custom field IDs (created 2026-08-21, confirmed live 2026-08-24)
+const CF_LTC = {
+  account_type:        "7nVU4Gq3ErElKwkQBh0E", // MULTIPLE_OPTIONS: Merchant-Vendor, Concierge Client
+  vip_access_code_used: "mEPNLmwze8EbOoo7qI4k", // TEXT
+  vip_code_status:      "3NLMOLzALHTRLXSneayj", // MULTIPLE_OPTIONS: Unredeemed, Redeemed, Rejected
+  niche:                "mvo97Y7poWukjWCm53i2", // MULTIPLE_OPTIONS
+};
+
+// Slug map for the 757ltc: tag taxonomy (all tags are lowercase, GHL forces this anyway)
+const LTC_ROLE_TAG = {
+  "Merchant-Vendor":   "757ltc:role:vendor-partner",
+  "Concierge Client":  "757ltc:role:vip-buyer",
+};
+const LTC_NICHE_TAG = {
+  "Aviation-FBO":    "757ltc:niche:aviation-fbo",
+  "Marine-Yacht":    "757ltc:niche:marine-yacht",
+  "Corporate":       "757ltc:niche:corporate",
+  "Estate":          "757ltc:niche:estate",
+  "Local Merchant":  "757ltc:niche:local-merchant",
 };
 
 // Map the site's sector / tier labels to their tags
@@ -97,10 +118,35 @@ export async function onRequestPost(context) {
     source: "757local.pages.dev",
   };
 
-  const consent = body.consent ? "I agree to receive SMS & email from 757 Local" : "";
+  const CONSENT_TEXT = {
+    vip: "By providing your mobile number you agree to receive service and account text messages from 757 Local Trading Co. Message and data rates may apply. Message frequency varies. Reply STOP to opt out, HELP for help. See our Privacy Policy and SMS Terms.",
+  };
+  const consent = body.consent ? (CONSENT_TEXT[type] || "I agree to receive SMS & email from 757 Local") : "";
   if (consent) push(CF.marketing_consent, [consent]);
 
-  if (type === "consumer") {
+  if (type === "vip") {
+    tags.push("757ltc:source:vip-card-qr");
+    const accountType = clean(body.account_type);
+    if (accountType) {
+      push(CF_LTC.account_type, [accountType]);
+      if (LTC_ROLE_TAG[accountType]) tags.push(LTC_ROLE_TAG[accountType]);
+      if (accountType === "Merchant-Vendor") {
+        payload.companyName = clean(body.business_name) || undefined;
+      }
+    }
+    const niche = clean(body.niche);
+    if (niche) {
+      push(CF_LTC.niche, [niche]);
+      if (LTC_NICHE_TAG[niche]) tags.push(LTC_NICHE_TAG[niche]);
+    }
+    const vipCode = clean(body.vip_code);
+    if (vipCode) {
+      push(CF_LTC.vip_access_code_used, vipCode);
+      // Code is captured here, not validated. Validation/redemption is a downstream
+      // GHL workflow step (Phase 4, Flow A) once a code registry exists.
+      push(CF_LTC.vip_code_status, ["Unredeemed"]);
+    }
+  } else if (type === "consumer") {
     tags.push("757-consumer-list");
     push(CF.signup_source, "Consumer List");
     const prefs = [].concat(body.buying_preferences || []).map(clean).filter(Boolean);

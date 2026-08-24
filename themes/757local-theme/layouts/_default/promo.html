@@ -1,0 +1,340 @@
+{{ define "main" }}
+
+<!-- Stripe.js for embedded checkout -->
+<script src="https://js.stripe.com/v3/" async></script>
+
+<!-- PROMO HERO -->
+<section class="hero p-hero" style="padding-bottom:0">
+  <div class="container">
+    {{ if (and (isset .Params "success") (.Params.success)) }}
+    <!-- Success state handled by JS below -->
+    {{ end }}
+
+    <div class="promo-success-banner" id="promo-success-banner" style="display:none">
+      <div class="chk">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h2 class="sec-title" style="margin-top:16px">You&rsquo;re live!</h2>
+      <p class="sec-sub" style="margin-inline:auto">Your promo spotlight goes live across 757 Local within 1&ndash;2 minutes. Share it with your crew and watch the foot traffic roll in.</p>
+      <a href="/" class="btn btn-primary" style="margin-top:28px">Back to 757 Local <span class="arrow">&#8594;</span></a>
+    </div>
+
+    <div id="promo-page-content">
+      <div class="hero-eyebrow kicker reveal">Local Businesses &middot; 757 Area</div>
+      <h1 class="h1 reveal">Get <em>Spotted</em> This Week</h1>
+      <p class="sub reveal">Run a 7-day promotional spotlight on 757 Local for a flat <b>$29</b>. Your business card appears in three rotating carousel locations on the homepage, front and center.</p>
+
+      <!-- What you get -->
+      <div class="promo-perks-row reveal" style="margin-top:44px">
+        <div class="promo-perk">
+          <div class="promo-perk-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <span>3 carousel locations on the homepage</span>
+        </div>
+        <div class="promo-perk">
+          <div class="promo-perk-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <span>7 days of exposure, auto-expires</span>
+        </div>
+        <div class="promo-perk">
+          <div class="promo-perk-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <span>Live in 1&ndash;2 minutes after payment</span>
+        </div>
+        <div class="promo-perk">
+          <div class="promo-perk-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-2-8 2v7c0 6 8 10 8 10Z"/></svg>
+          </div>
+          <span>Secure $29 one-time, no subscription</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO FORM + PREVIEW -->
+<section class="sec" id="promo-form-section" style="padding-top:54px">
+  <div class="container">
+    <div class="promo-builder-grid" id="promo-page-form">
+      <!-- LEFT: FORM -->
+      <div class="promo-form-col">
+        <div class="kicker" style="margin-bottom:18px">Step 1 of 2 &middot; Fill Your Details</div>
+        <form id="promo-form" autocomplete="off">
+
+          <div class="field">
+            <label for="pf-name">Business Name <span style="color:var(--fuchsia)">*</span></label>
+            <input id="pf-name" name="business_name" type="text" placeholder="The Golden Spoon Cafe" required maxlength="200" />
+          </div>
+
+          <div class="field" style="margin-top:18px">
+            <label for="pf-sector">Sector <span style="color:var(--fuchsia)">*</span></label>
+            <select id="pf-sector" name="sector" required>
+              <option value="">Select your sector&hellip;</option>
+              <option value="Wellness &amp; Boutique Fitness">Wellness &amp; Boutique Fitness</option>
+              <option value="Local Eateries &amp; Cafes">Local Eateries &amp; Cafes</option>
+              <option value="Small Farmers &amp; Growers">Small Farmers &amp; Growers</option>
+              <option value="Independent Craftsmen &amp; Makers">Independent Craftsmen &amp; Makers</option>
+            </select>
+          </div>
+
+          <div class="field" style="margin-top:18px">
+            <label for="pf-headline">Promo Headline <span style="color:var(--fuchsia)">*</span></label>
+            <input id="pf-headline" name="promo_headline" type="text" placeholder="Fresh eats. Local roots. Come find us." required maxlength="100" />
+            <div class="field-hint"><span id="headline-count">0</span>/100</div>
+          </div>
+
+          <div class="field" style="margin-top:18px">
+            <label for="pf-copy">Promo Copy <span style="color:var(--fuchsia)">*</span></label>
+            <textarea id="pf-copy" name="promo_copy" placeholder="2&ndash;3 sentences about what makes your business worth visiting this week. Be direct and punchy." required rows="4" maxlength="400"></textarea>
+            <div class="field-hint">2&ndash;3 sentences, max 400 characters</div>
+          </div>
+
+          <div class="field" style="margin-top:18px">
+            <label for="pf-image">Image URL <span style="color:var(--fuchsia)">*</span></label>
+            <input id="pf-image" name="image_url" type="url" placeholder="https://your-site.com/photo.jpg" required />
+            <div class="field-hint">High-quality photo, at least 800px tall. Square or portrait format works best.</div>
+          </div>
+
+          <div class="promo-form-row" style="margin-top:18px">
+            <div class="field">
+              <label for="pf-cta-text">CTA Button Text</label>
+              <input id="pf-cta-text" name="cta_text" type="text" placeholder="Learn More" maxlength="40" />
+            </div>
+            <div class="field">
+              <label for="pf-cta-url">CTA Link (URL)</label>
+              <input id="pf-cta-url" name="cta_url" type="url" placeholder="https://your-site.com" />
+            </div>
+          </div>
+
+          <div class="promo-form-row" style="margin-top:18px">
+            <div class="field">
+              <label for="pf-ig">Instagram Handle</label>
+              <input id="pf-ig" name="instagram" type="text" placeholder="@yourbusiness" maxlength="60" />
+            </div>
+            <div class="field">
+              <label for="pf-tt">TikTok Handle</label>
+              <input id="pf-tt" name="tiktok" type="text" placeholder="@yourtiktok" maxlength="60" />
+            </div>
+          </div>
+
+          <div class="field consent" style="margin-top:22px">
+            <input id="pf-consent" name="consent" type="checkbox" required />
+            <label for="pf-consent">I confirm this is my business and the content is accurate. I agree to 757 Local&rsquo;s promotional terms.</label>
+          </div>
+
+          <div class="form-status" id="promo-form-status" style="margin-top:12px"></div>
+
+          <button type="submit" class="btn btn-primary" id="promo-submit-btn" style="margin-top:22px;width:100%;justify-content:center">
+            Review &amp; Pay $29 <span class="arrow">&#8594;</span>
+          </button>
+
+          <p style="font-size:12px;color:var(--muted);margin-top:14px;text-align:center;letter-spacing:.04em">
+            Secure payment by Stripe &middot; One-time $29 &middot; No subscription
+          </p>
+        </form>
+      </div>
+
+      <!-- RIGHT: LIVE PREVIEW -->
+      <div class="promo-preview-col">
+        <div class="kicker" style="margin-bottom:18px">Live Preview</div>
+        <div class="promo-card-wrap" style="max-width:340px;margin:0 auto">
+          <div class="promo-card" id="preview-card">
+            <div class="pc-bg" id="preview-bg" style="background-image:url('')"></div>
+            <div class="pc-overlay"></div>
+            <div class="pc-sector-badge" id="preview-sector"></div>
+            <div class="pc-body">
+              <h3 class="pc-headline" id="preview-headline">Your headline goes here</h3>
+              <p class="pc-copy" id="preview-copy">Your promo copy will appear here. Fill in the form to see your card come to life.</p>
+              <div class="pc-meta">
+                <div class="pc-social" id="preview-social" style="display:none">
+                  <span class="pc-social-handle" id="preview-ig-badge"></span>
+                  <span class="pc-social-handle" id="preview-tt-badge"></span>
+                </div>
+                <div class="pc-biz-name" id="preview-biz-name">Business Name</div>
+                <a class="pc-cta" id="preview-cta" href="#" onclick="return false">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <p style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:14px">Mobile reel format &middot; Actual size on homepage</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRIPE CHECKOUT MODAL -->
+    <div id="stripe-modal" style="display:none" role="dialog" aria-modal="true" aria-label="Complete payment">
+      <div class="stripe-modal-backdrop" id="stripe-modal-backdrop"></div>
+      <div class="stripe-modal-box">
+        <button class="stripe-modal-close" id="stripe-modal-close" aria-label="Close payment">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="kicker" style="margin-bottom:8px">Step 2 of 2 &middot; Secure Payment</div>
+        <p style="color:var(--muted);font-size:14px;margin-bottom:22px">Powered by Stripe. $29 one-time charge.</p>
+        <div id="stripe-checkout-container"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  /* --- Live preview wiring --- */
+  const byId = id => document.getElementById(id);
+  const el = {
+    bg:       byId('preview-bg'),
+    sector:   byId('preview-sector'),
+    headline: byId('preview-headline'),
+    copy:     byId('preview-copy'),
+    bizName:  byId('preview-biz-name'),
+    cta:      byId('preview-cta'),
+    social:   byId('preview-social'),
+    igBadge:  byId('preview-ig-badge'),
+    ttBadge:  byId('preview-tt-badge'),
+    hCount:   byId('headline-count'),
+  };
+
+  function up(id, val, attr) {
+    if (!el[id]) return;
+    if (attr) { el[id].setAttribute(attr, val); } else { el[id].textContent = val; }
+  }
+
+  byId('pf-image')    && byId('pf-image').addEventListener('input', function() {
+    if (el.bg) el.bg.style.backgroundImage = this.value ? `url('${this.value}')` : 'none';
+  });
+  byId('pf-sector')   && byId('pf-sector').addEventListener('change', function() {
+    up('sector', this.value);
+  });
+  byId('pf-headline') && byId('pf-headline').addEventListener('input', function() {
+    up('headline', this.value || 'Your headline goes here');
+    if (el.hCount) el.hCount.textContent = this.value.length;
+  });
+  byId('pf-copy')     && byId('pf-copy').addEventListener('input', function() {
+    up('copy', this.value || 'Your promo copy will appear here.');
+  });
+  byId('pf-name')     && byId('pf-name').addEventListener('input', function() {
+    up('bizName', this.value || 'Business Name');
+  });
+  byId('pf-cta-text') && byId('pf-cta-text').addEventListener('input', function() {
+    up('cta', this.value || 'Learn More');
+  });
+
+  function updateSocial() {
+    var ig = (byId('pf-ig') && byId('pf-ig').value) || '';
+    var tt = (byId('pf-tt') && byId('pf-tt').value) || '';
+    if (el.igBadge) el.igBadge.textContent = ig ? '📱 ' + ig : '';
+    if (el.ttBadge) el.ttBadge.textContent = tt ? '🎵 ' + tt : '';
+    if (el.social)  el.social.style.display = (ig || tt) ? 'flex' : 'none';
+    if (el.igBadge) el.igBadge.style.display = ig ? 'inline-flex' : 'none';
+    if (el.ttBadge) el.ttBadge.style.display = tt ? 'inline-flex' : 'none';
+  }
+  byId('pf-ig') && byId('pf-ig').addEventListener('input', updateSocial);
+  byId('pf-tt') && byId('pf-tt').addEventListener('input', updateSocial);
+
+  /* --- Success state on page load (return from Stripe) --- */
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('success') === 'true') {
+    var banner = byId('promo-success-banner');
+    var content = byId('promo-page-content');
+    var formSec = byId('promo-form-section');
+    if (banner)  { banner.style.display  = 'block'; }
+    if (content) { content.style.display = 'none';  }
+    if (formSec) { formSec.style.display = 'none';  }
+    // Clean URL
+    history.replaceState({}, '', '/promo');
+    return; // skip rest of script
+  }
+
+  /* --- Stripe embedded checkout --- */
+  var stripeInstance = null;
+  var stripeCheckout = null;
+
+  var modal     = byId('stripe-modal');
+  var backdrop  = byId('stripe-modal-backdrop');
+  var closeBtn  = byId('stripe-modal-close');
+  var container = byId('stripe-checkout-container');
+  var status    = byId('promo-form-status');
+  var submitBtn = byId('promo-submit-btn');
+
+  function openModal() {
+    if (modal) {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  function closeModal() {
+    if (modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    if (stripeCheckout) { stripeCheckout.destroy(); stripeCheckout = null; }
+    if (container) container.innerHTML = '';
+  }
+
+  if (closeBtn)  closeBtn.addEventListener('click', closeModal);
+  if (backdrop)  backdrop.addEventListener('click', closeModal);
+
+  byId('promo-form') && byId('promo-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (status) { status.className = 'form-status'; status.textContent = ''; }
+
+    var form = e.target;
+    var consent = form.querySelector('[name=consent]');
+    if (consent && !consent.checked) {
+      if (status) { status.className = 'form-status err'; status.textContent = 'Please agree to the terms to continue.'; }
+      return;
+    }
+
+    var data = {};
+    new FormData(form).forEach(function(v, k) {
+      if (k === 'consent') return;
+      data[k] = v;
+    });
+
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Setting up checkout…'; }
+
+    try {
+      var r = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      var resp = await r.json();
+
+      if (!r.ok || !resp.ok || !resp.clientSecret) {
+        throw new Error(resp.error || 'Could not start checkout.');
+      }
+
+      // Load Stripe if not yet loaded
+      if (!stripeInstance) {
+        if (typeof Stripe === 'undefined') {
+          await new Promise(function(resolve, reject) {
+            var s = document.createElement('script');
+            s.src = 'https://js.stripe.com/v3/';
+            s.onload = resolve;
+            s.onerror = reject;
+            document.head.appendChild(s);
+          });
+        }
+        stripeInstance = Stripe(resp.publishableKey);
+      }
+
+      openModal();
+
+      stripeCheckout = await stripeInstance.initEmbeddedCheckout({
+        clientSecret: resp.clientSecret,
+      });
+      stripeCheckout.mount('#stripe-checkout-container');
+
+    } catch (err) {
+      if (status) { status.className = 'form-status err'; status.textContent = err.message || 'Something went wrong. Please try again.'; }
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = 'Review &amp; Pay $29 <span class="arrow">→</span>'; }
+    }
+  });
+})();
+</script>
+
+{{ end }}

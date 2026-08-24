@@ -1,5 +1,20 @@
 {{ define "main" }}
 
+<!-- CAROUSEL 1: Hero Band — "Featured This Week" (above hero, auto-rotates every 5s) -->
+<section class="promo-hero-band" id="promo-hero-band" style="display:none" aria-label="Featured This Week">
+  <div class="container">
+    <div class="promo-hero-band-head">
+      <div>
+        <div class="kicker" style="margin-bottom:4px">Featured This Week</div>
+        <p style="font-size:13px;color:var(--muted)">Local businesses shining a spotlight in the 757.</p>
+      </div>
+      <a href="/promo" class="promo-spotlight-link">Get Spotlighted &rarr;</a>
+    </div>
+    <div class="promo-hero-band-cards" id="promo-hero-cards"></div>
+    <div class="promo-carousel-dots" id="promo-hero-dots" style="margin-bottom:24px"></div>
+  </div>
+</section>
+
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="container">
@@ -153,47 +168,78 @@
   </div>
 </section>
 
-<!-- NICHE DIRECTORY -->
+<!-- NICHE DIRECTORY + SIDEBAR WIDGET -->
 <section class="sec" id="directory">
   <div class="container">
-    <div class="sec-head center reveal">
-      <div class="kicker">The Niche Priority Showcase</div>
-      <h2 class="sec-title">Four sectors. <em>Hand-picked,</em> not crowdsourced.</h2>
+    <div class="home-with-sidebar">
+      <!-- Main directory content -->
+      <div>
+        <div class="sec-head center reveal">
+          <div class="kicker">The Niche Priority Showcase</div>
+          <h2 class="sec-title">Four sectors. <em>Hand-picked,</em> not crowdsourced.</h2>
+        </div>
+        <div class="dir-grid stagger">
+          <article class="niche" style="--clr:var(--violet)">
+            <div class="no">01</div>
+            <div class="ico">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z"/></svg>
+            </div>
+            <h4>Wellness &amp; Boutique Fitness</h4>
+            <span class="pill">Wellness</span>
+          </article>
+          <article class="niche" style="--clr:var(--orange)">
+            <div class="no">02</div>
+            <div class="ico">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+            </div>
+            <h4>Local Eateries &amp; Cafes</h4>
+            <span class="pill">Food &amp; Drink</span>
+          </article>
+          <article class="niche" style="--clr:var(--mint)">
+            <div class="no">03</div>
+            <div class="ico">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22c5-1 8-5 8-11V4l-8 2-8-2v7c0 6 3 10 8 11Z"/><path d="M12 8v9"/></svg>
+            </div>
+            <h4>Small Farmers &amp; Growers</h4>
+            <span class="pill">Farm &amp; Fresh</span>
+          </article>
+          <article class="niche" style="--clr:var(--cyan)">
+            <div class="no">04</div>
+            <div class="ico">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m14 7 3 3M3 21l3-1 11-11-2-2L4 18l-1 3ZM14 7l2-2a2 2 0 0 1 3 3l-2 2"/></svg>
+            </div>
+            <h4>Independent Craftsmen &amp; Makers</h4>
+            <span class="pill">Makers</span>
+          </article>
+        </div>
+      </div>
+
+      <!-- CAROUSEL 3: Desktop sidebar widget -->
+      <aside class="promo-sidebar" id="promo-sidebar" aria-label="Spotlight This Week" style="display:none">
+        <div class="kicker" style="margin-bottom:12px">Spotlight This Week</div>
+        <div id="promo-sidebar-card"></div>
+        <a href="/promo" class="promo-spotlight-link" style="margin-top:14px;justify-content:center">
+          Get Spotlighted $29 &rarr;
+        </a>
+      </aside>
     </div>
-    <div class="dir-grid stagger">
-      <article class="niche" style="--clr:var(--violet)">
-        <div class="no">01</div>
-        <div class="ico">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10Z"/></svg>
-        </div>
-        <h4>Wellness &amp; Boutique Fitness</h4>
-        <span class="pill">Wellness</span>
-      </article>
-      <article class="niche" style="--clr:var(--orange)">
-        <div class="no">02</div>
-        <div class="ico">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-        </div>
-        <h4>Local Eateries &amp; Cafes</h4>
-        <span class="pill">Food &amp; Drink</span>
-      </article>
-      <article class="niche" style="--clr:var(--mint)">
-        <div class="no">03</div>
-        <div class="ico">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22c5-1 8-5 8-11V4l-8 2-8-2v7c0 6 3 10 8 11Z"/><path d="M12 8v9"/></svg>
-        </div>
-        <h4>Small Farmers &amp; Growers</h4>
-        <span class="pill">Farm &amp; Fresh</span>
-      </article>
-      <article class="niche" style="--clr:var(--cyan)">
-        <div class="no">04</div>
-        <div class="ico">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m14 7 3 3M3 21l3-1 11-11-2-2L4 18l-1 3ZM14 7l2-2a2 2 0 0 1 3 3l-2 2"/></svg>
-        </div>
-        <h4>Independent Craftsmen &amp; Makers</h4>
-        <span class="pill">Makers</span>
-      </article>
+  </div>
+</section>
+
+<!-- CAROUSEL 2: "Local Offers" — swipeable, below directory grid -->
+<section class="sec promo-carousel-section" id="promo-offers-section" style="display:none;padding-top:64px;padding-bottom:64px" aria-label="Local Offers">
+  <div class="container">
+    <div class="sec-head reveal" style="margin-bottom:32px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;max-width:none">
+      <div>
+        <div class="kicker">Local Offers &middot; This Week Only</div>
+        <h2 class="sec-title" style="font-size:clamp(24px,3.5vw,36px);margin-top:12px">Deals from your <em>neighbors.</em></h2>
+      </div>
+      <a href="/promo" class="promo-spotlight-link">Spotlight Your Biz &rarr;</a>
     </div>
+    <div class="promo-carousel-wrap">
+      <div class="promo-carousel" id="promo-offers-carousel" role="list"></div>
+    </div>
+    <div class="promo-carousel-dots" id="promo-offers-dots"></div>
   </div>
 </section>
 

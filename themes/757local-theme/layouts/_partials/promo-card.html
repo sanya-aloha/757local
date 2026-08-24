@@ -1,0 +1,34 @@
+{{/*
+  Promo Card partial — mobile reel format
+  Usage: {{ partial "promo-card.html" . }}
+  Data fields: business_name, sector, promo_headline, promo_copy,
+               image_url, cta_text, cta_url, instagram, tiktok
+*/}}
+<div class="promo-card"
+     {{ with .cta_url }}data-href="{{ . }}"{{ end }}
+     role="{{ if .cta_url }}link{{ else }}article{{ end }}"
+     {{ with .cta_url }}tabindex="0" style="cursor:pointer"{{ end }}>
+  <div class="pc-bg" style="background-image:url('{{ .image_url }}')"></div>
+  <div class="pc-overlay"></div>
+  {{ with .sector }}<div class="pc-sector-badge">{{ . }}</div>{{ end }}
+  <div class="pc-body">
+    <h3 class="pc-headline">{{ .promo_headline }}</h3>
+    <p class="pc-copy">{{ .promo_copy }}</p>
+    <div class="pc-meta">
+      {{ if or .instagram .tiktok }}
+      <div class="pc-social">
+        {{ with .instagram }}<span class="pc-social-handle">&#128241; {{ . }}</span>{{ end }}
+        {{ with .tiktok }}<span class="pc-social-handle">&#127925; {{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+      <div class="pc-biz-name">{{ .business_name }}</div>
+      {{ with .cta_url }}
+      <a class="pc-cta" href="{{ . }}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+        {{ if $.cta_text }}{{ $.cta_text }}{{ else }}Learn More{{ end }}
+      </a>
+      {{ else }}
+      <span class="pc-cta pc-cta-static">{{ if .cta_text }}{{ .cta_text }}{{ else }}Learn More{{ end }}</span>
+      {{ end }}
+    </div>
+  </div>
+</div>

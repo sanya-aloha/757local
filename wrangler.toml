@@ -1,0 +1,31 @@
+name = "757local"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "757local-promos"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# After creating the D1 DB:
+#   npx wrangler d1 create 757local-promos
+# Copy the database_id from the output above and paste it here.
+#
+# Run the schema:
+#   npx wrangler d1 execute 757local-promos --file=./schema.sql
+#
+# Bind DB to Pages project in Cloudflare dashboard:
+#   Settings > Functions > D1 database bindings > Add binding
+#   Variable name: DB  |  D1 database: 757local-promos
+#
+# Set secrets in Cloudflare Pages project settings:
+#   Settings > Environment variables (Production)
+#   STRIPE_SECRET_KEY = sk_live_...
+#   STRIPE_WEBHOOK_SECRET = whsec_...
+#   STRIPE_PUBLISHABLE_KEY = pk_live_...
+#   CLEANUP_SECRET = (random string you choose, used to protect /scheduled/cleanup)
+#
+# Cron trigger: Cloudflare Pages does not natively support cron events
+# via the functions/ directory. To run cleanup daily, create a Cloudflare
+# Worker that does: fetch('https://757local.pages.dev/scheduled/cleanup',
+# { headers: { 'x-cleanup-secret': CLEANUP_SECRET } }) on a 0 0 * * * cron.

@@ -5,7 +5,7 @@
  * env secret (GHL_TOKEN). Never expose it client-side.
  *
  * Route: POST /api/lead
- * Body (JSON): { form_type: "consumer" | "raffle" | "b2b" | "vip" | "concierge", ...fields }
+ * Body (JSON): { form_type: "consumer" | "raffle" | "b2b" | "vip" | "concierge" | "vendor_updates", ...fields }
  */
 
 const GHL_BASE = "https://services.leadconnectorhq.com";
@@ -170,6 +170,9 @@ export async function onRequestPost(context) {
       push(CF_LTC.retainer_tier, [tier]);
       if (RETAINER_TIER_TAG[tier]) tags.push(RETAINER_TIER_TAG[tier]);
     }
+  } else if (type === "vendor_updates") {
+    // Lightweight homepage opt-in for merchants not ready to sign up yet.
+    tags.push("757ltc:source:homepage-optin", "757ltc:status:vendor-interest");
   } else if (type === "consumer") {
     tags.push("757-consumer-list");
     push(CF.signup_source, "Consumer List");

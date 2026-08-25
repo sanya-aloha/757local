@@ -390,6 +390,28 @@ footer{border-top:1px solid var(--edge-soft);padding:64px 0 50px;margin-top:40px
 .tier-cta:hover{background:var(--clr);color:#1a0010;transform:translateY(-2px)}
 .tier-featured .tier-cta{background:var(--clr);color:#1a0010;box-shadow:0 0 36px -8px var(--clr)}
 
+.vendor-optin{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;
+  margin-top:36px;border:1px solid var(--edge);border-radius:16px;padding:26px 32px;
+  background:rgba(255,255,255,.015)}
+.vendor-optin-copy{flex:1;min-width:240px}
+.vendor-optin-copy p{color:var(--muted);font-size:14px;font-weight:300;margin-top:2px}
+.vendor-optin-form{flex:none;width:400px;max-width:100%}
+.vendor-optin-form .form-fields{display:flex;gap:10px}
+.vendor-optin-form input[type=email]{
+  background:rgba(255,255,255,.03);border:1px solid var(--edge);border-radius:30px;
+  padding:12px 18px;color:var(--white);font-family:var(--sans);font-size:14px;font-weight:300;
+  width:100%;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.vendor-optin-form input[type=email]::placeholder{color:rgba(158,160,165,.6)}
+.vendor-optin-form input[type=email]:focus{outline:none;border-color:var(--fuchsia);
+  box-shadow:0 0 0 3px rgba(237,76,154,.14)}
+.vendor-optin-form button{white-space:nowrap;padding:12px 22px;font-size:13px;flex:none}
+.vendor-optin-form .form-status{font-size:12px;min-height:1px;margin-top:8px}
+.vendor-optin-form .form-done{font-size:13px;color:var(--mint);padding-top:8px}
+@media(max-width:640px){
+  .vendor-optin{flex-direction:column;align-items:stretch;text-align:center;padding:24px}
+  .vendor-optin-form{width:100%}
+}
+
 /* ============ PARTNERS: PERKS / ANTI-CHURN ============ */
 .perks-band{
   display:flex;gap:48px;align-items:center;flex-wrap:wrap;

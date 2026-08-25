@@ -1,43 +1,31 @@
-# 757 Local partner tiers, edit prices/features here; the /partners pricing table reads from this file.
-- tag: "Tier 1"
-  name: "The AI Directory"
-  price: 49
+# 757 Local Trading Co. merchant directory tiers, edit prices/features here;
+# the homepage and /partners pricing tables both read from this file.
+- tag: "Entry Tier"
+  name: "VENDOR"
+  price: 22
   cadence: "/mo"
   accent: "cyan"
   featured: false
-  blurb: "A permanent, structured home base built to be read by AI search."
-  cta: "Start at $49"
+  blurb: "A card listing in the directory. Simple discovery, zero friction to get started."
+  cta: "Start at $22"
   features:
-    - "Permanent directory page, structured for ChatGPT, AI Overviews, Perplexity & Gemini"
-    - "Clean JSON-LD schema so answer engines verify you on sight"
-    - "Placement in your sector's Niche Directory"
-    - "Access to the 757 Local Perks B2B network, save on other members' services"
+    - "Card listing in the 757 Local B2B directory"
+    - "Business name, category & description"
+    - "Direct phone number and website link"
+    - "Discoverable by AI answer engines and search"
 
-- tag: "Tier 2"
-  name: "The Co-Op Promo Partner"
-  price: 199
-  cadence: "/mo"
-  accent: "fuchsia"
-  featured: true
-  blurb: "Everything in Tier 1, plus active promotion to the community we built."
-  cta: "Become a Partner"
-  features:
-    - "Everything in The AI Directory"
-    - "Monthly Spotlight Broadcast to the consumer list (SMS + email)"
-    - "Monthly raw video asset kit, aesthetic vertical B-roll for TikTok & Reels"
-    - "Priority routing of meetup foot traffic to your storefront"
-
-- tag: "Tier 3"
-  name: "The Ultimate Event Host"
-  price: 999
+- tag: "Premium Tier"
+  name: "FOUNDER"
+  price: 99
   cadence: "/mo"
   accent: "orange"
-  featured: false
-  blurb: "Everything in Tier 1 & 2, plus we bring the crowd to your door."
-  cta: "Apply to Host"
+  featured: true
+  blurb: "A dedicated full page, plus the NFC integration that turns your register into a concierge order point."
+  cta: "Become a Founder"
   features:
-    - "Everything in The Co-Op Promo Partner"
-    - "One dedicated Destination Event per quarter, hosted at your location"
-    - "We bring the crowd directly to you, on-site"
-    - "Full editorial + video coverage of your event"
-  scarcity: "Only 4 host slots per quarter"
+    - "Everything in VENDOR, plus a dedicated full merchant page"
+    - "Custom acrylic NFC/QR counter stand for your register"
+    - "NFC lets concierge retainer clients request pickup & delivery on the spot"
+    - "Social spotlight across the 757 Local channels"
+    - "Monthly placement in The 757 Reserve print newsletter"
+    - "Preferred supplier status into the concierge fleet order flow"

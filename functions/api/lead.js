@@ -5,7 +5,7 @@
  * env secret (GHL_TOKEN). Never expose it client-side.
  *
  * Route: POST /api/lead
- * Body (JSON): { form_type: "consumer" | "raffle" | "b2b" | "vip", ...fields }
+ * Body (JSON): { form_type: "consumer" | "raffle" | "b2b" | "vip" | "concierge", ...fields }
  */
 
 const GHL_BASE = "https://services.leadconnectorhq.com";
@@ -27,6 +27,15 @@ const CF_LTC = {
   vip_access_code_used: "mEPNLmwze8EbOoo7qI4k", // TEXT
   vip_code_status:      "3NLMOLzALHTRLXSneayj", // MULTIPLE_OPTIONS: Unredeemed, Redeemed, Rejected
   niche:                "mvo97Y7poWukjWCm53i2", // MULTIPLE_OPTIONS
+  retainer_tier:        "M39ogPfxTKjdHIGsyxfw", // MULTIPLE_OPTIONS: None, COLLECTIVE, NEPTUNE, ELITE VIBE (renamed 2026-08-24)
+};
+
+// Retainer tier -> billing tag. Internal tag slugs kept as the original
+// tier1/tier2/tier3 names; only the customer-facing tier NAME changed.
+const RETAINER_TIER_TAG = {
+  "COLLECTIVE": "757ltc:billing:tier1-corporate",
+  "NEPTUNE":    "757ltc:billing:tier2-marine-aviation",
+  "ELITE VIBE": "757ltc:billing:tier3-estate",
 };
 
 // Slug map for the 757ltc: tag taxonomy (all tags are lowercase, GHL forces this anyway)
@@ -50,9 +59,8 @@ const SECTOR_TAG = {
   "Independent Craftsmen & Makers": "757-makers",
 };
 const TIER_TAG = {
-  "Tier 1 - AI Directory ($49/mo)": "757-tier1-49",
-  "Tier 2 - Co-Op Promo Partner ($199/mo)": "757-tier2-199",
-  "Tier 3 - Ultimate Event Host ($999/mo)": "757-tier3-999",
+  "VENDOR ($22/mo)": "757ltc:billing:vendor-22",
+  "FOUNDER ($99/mo)": "757ltc:billing:founder-99",
 };
 
 const json = (obj, status = 200) =>
@@ -118,8 +126,10 @@ export async function onRequestPost(context) {
     source: "757local.pages.dev",
   };
 
+  const LTC_CONSENT_TEXT = "By providing your mobile number you agree to receive service and account text messages from 757 Local Trading Co. Message and data rates may apply. Message frequency varies. Reply STOP to opt out, HELP for help. See our Privacy Policy and SMS Terms.";
   const CONSENT_TEXT = {
-    vip: "By providing your mobile number you agree to receive service and account text messages from 757 Local Trading Co. Message and data rates may apply. Message frequency varies. Reply STOP to opt out, HELP for help. See our Privacy Policy and SMS Terms.",
+    vip: LTC_CONSENT_TEXT,
+    concierge: LTC_CONSENT_TEXT,
   };
   const consent = body.consent ? (CONSENT_TEXT[type] || "I agree to receive SMS & email from 757 Local") : "";
   if (consent) push(CF.marketing_consent, [consent]);
@@ -145,6 +155,20 @@ export async function onRequestPost(context) {
       // Code is captured here, not validated. Validation/redemption is a downstream
       // GHL workflow step (Phase 4, Flow A) once a code registry exists.
       push(CF_LTC.vip_code_status, ["Unredeemed"]);
+    }
+  } else if (type === "concierge") {
+    // Open-web concierge inquiry from /concierge — no VIP code, not gated.
+    tags.push("757ltc:source:direct-inquiry", "757ltc:role:vip-buyer");
+    push(CF_LTC.account_type, ["Concierge Client"]);
+    const niche = clean(body.niche);
+    if (niche) {
+      push(CF_LTC.niche, [niche]);
+      if (LTC_NICHE_TAG[niche]) tags.push(LTC_NICHE_TAG[niche]);
+    }
+    const tier = clean(body.retainer_tier);
+    if (tier) {
+      push(CF_LTC.retainer_tier, [tier]);
+      if (RETAINER_TIER_TAG[tier]) tags.push(RETAINER_TIER_TAG[tier]);
     }
   } else if (type === "consumer") {
     tags.push("757-consumer-list");

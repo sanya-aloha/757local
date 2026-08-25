@@ -1,0 +1,34 @@
+# 757 Local Trading Co. concierge retainer tiers, edit prices/features here;
+# the /concierge page pricing table reads from this file.
+- tag: "Tier 01"
+  name: "COLLECTIVE"
+  price: 599
+  cadence: "/mo"
+  accent: "cyan"
+  featured: false
+  runs: "4 included runs / month"
+  overage: "$85 per overage run"
+  blurb: "Corporate & office focus. Law offices, wealth firms & Town Center executive suites."
+  cta: "Start with COLLECTIVE"
+
+- tag: "Tier 02"
+  name: "NEPTUNE"
+  price: "1,250"
+  cadence: "/mo"
+  accent: "mint"
+  featured: false
+  runs: "8 included runs / month"
+  overage: "$75 per overage run &middot; Priority Dispatch"
+  blurb: "Yacht, marine & aviation focus. Marina Shores, Cavalier & Signature Aviation FBO provisioning."
+  cta: "Start with NEPTUNE"
+
+- tag: "Tier 03 · Flagship"
+  name: "ELITE VIBE"
+  price: "1,850"
+  cadence: "/mo"
+  accent: "fuchsia"
+  featured: true
+  runs: "12 included runs / month"
+  overage: "$70 per overage run &middot; Dedicated Account Manager"
+  blurb: "Oceanfront estates & property manager portfolios. Pre-arrival staging included."
+  cta: "Start with ELITE VIBE"

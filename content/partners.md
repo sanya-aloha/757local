@@ -1,5 +1,5 @@
 ---
 title: "Partner With 757 Local"
-description: "Turn 757 Local's real-world crowd into your foot traffic. Three partner tiers from $49/mo: AI visibility, first-party data, and hosted Destination Events across Virginia Beach & Norfolk."
+description: "Get your Hampton Roads business listed and cited by AI search. Two tiers from $22/mo: VENDOR card listing or FOUNDER full page with NFC-powered concierge integration."
 layout: partners
 ---

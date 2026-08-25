@@ -362,7 +362,8 @@ footer{border-top:1px solid var(--edge-soft);padding:64px 0 50px;margin-top:40px
 .flow-arrow{display:grid;place-items:center;color:var(--fuchsia);font-size:24px;flex:none}
 
 /* ============ PARTNERS: PRICING TIERS ============ */
-.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.tier-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,360px));
+  gap:22px;align-items:start;justify-content:center}
 .tier{
   position:relative;background:var(--card);border:1px solid var(--edge);border-radius:22px;
   padding:34px 30px;display:flex;flex-direction:column;height:100%;

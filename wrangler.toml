@@ -2,10 +2,20 @@ name = "757local"
 compatibility_date = "2024-09-23"
 pages_build_output_dir = "public"
 
-[[d1_databases]]
-binding = "DB"
-database_name = "757local-promos"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+# DISABLED 2026-08-25: this placeholder database_id was never replaced with
+# a real D1 UUID, and every deploy since this file was committed has failed
+# at the Functions-publish step trying to bind to it ("Invalid database UUID
+# (REPLACE_WITH_YOUR_D1_DATABASE_ID)") — silently killing every deployment,
+# not just the promo feature. Commented out to unblock deploys. The promo
+# checkout function also needs live Stripe secrets (see below) that aren't
+# configured yet, so it wouldn't be functional even with a real DB bound.
+# To re-enable: create the DB, uncomment, set the real database_id, run the
+# schema, set the Stripe secrets, then redeploy.
+#
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "757local-promos"
+# database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
 
 # After creating the D1 DB:
 #   npx wrangler d1 create 757local-promos

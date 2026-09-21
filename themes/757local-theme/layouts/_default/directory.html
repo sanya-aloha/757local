@@ -1,0 +1,41 @@
+{{ define "main" }}
+
+<section class="hero p-hero" id="top" style="padding-bottom:40px">
+  <div class="container">
+    <div class="hero-eyebrow kicker reveal">The Directory <span class="dot">/</span> Hampton Roads</div>
+    <h1 class="h1 reveal" style="margin-top:18px">Find the makers <em>behind the 757.</em></h1>
+    <p class="sub reveal">Curated local makers, artisans and independent businesses. Every listing is built to be read by AI search, so the right customers find the right maker.</p>
+    <p class="reveal" style="margin-top:18px"><span class="sample-badge">Launch preview &middot; sample listings shown</span></p>
+  </div>
+</section>
+
+<section class="sec" id="listings" style="padding-top:20px">
+  <div class="container">
+    <div class="listing-grid stagger">
+      {{ range .Pages.ByTitle }}
+      <a class="listing-card" href="{{ .RelPermalink }}" style="--clr:var(--mint);text-decoration:none">
+        {{ if .Params.sample }}<span class="sample-badge" style="align-self:flex-start">Sample listing</span>{{ end }}
+        <h3>{{ .Title }}</h3>
+        <span class="pill">{{ .Params.category }}</span>
+        <p>{{ .Description }}</p>
+        <ul class="listing-meta">
+          <li><b>City</b>{{ .Params.city }}</li>
+        </ul>
+      </a>
+      {{ end }}
+    </div>
+
+    <div class="b2b-band reveal" style="margin-top:64px">
+      <div class="b2b-copy">
+        <div class="kicker">Own a 757 Business? <span class="dot">&middot;</span> Get Listed</div>
+        <h2 class="sec-title">Your business could be <em>right here.</em></h2>
+        <p class="sec-sub">Card listings from <b>$22/mo</b>. Full pages, built and managed for you, from <b>$49/mo</b> founding rate.</p>
+      </div>
+      <div class="b2b-action">
+        <a href="/partners#apply" class="btn btn-primary">Apply to Be Listed <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

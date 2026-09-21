@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>The 757 Local Directory on 757 Local</title>
+		<link>https://757local.pages.dev/directory/</link>
+		<description>Recent content in The 757 Local Directory on 757 Local</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<atom:link href="https://757local.pages.dev/directory/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Back Bay Farm</title>
+				<link>https://757local.pages.dev/directory/sample-back-bay-farm/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://757local.pages.dev/directory/sample-back-bay-farm/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Chesapeake Cellars</title>
+				<link>https://757local.pages.dev/directory/sample-chesapeake-cellars/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://757local.pages.dev/directory/sample-chesapeake-cellars/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Lynnhaven Woodworks</title>
+				<link>https://757local.pages.dev/directory/sample-lynnhaven-woodworks/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://757local.pages.dev/directory/sample-lynnhaven-woodworks/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Oceanfront Leather Co.</title>
+				<link>https://757local.pages.dev/directory/sample-oceanfront-leather/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://757local.pages.dev/directory/sample-oceanfront-leather/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tidewater Ceramics</title>
+				<link>https://757local.pages.dev/directory/sample-tidewater-ceramics/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://757local.pages.dev/directory/sample-tidewater-ceramics/</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>

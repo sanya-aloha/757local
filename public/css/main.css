@@ -380,6 +380,22 @@ footer{border-top:1px solid var(--edge-soft);padding:64px 0 50px;margin-top:40px
 .tier-price .c{color:var(--clr);font-size:30px;margin-right:2px}
 .tier-price .cad{font-family:var(--sans);font-size:14px;color:var(--muted);letter-spacing:.06em;margin-left:6px;font-weight:300}
 .tier-blurb{color:var(--muted);font-size:14px;margin:16px 0 22px}
+.tier-founding{margin-top:12px;font-size:12.5px;line-height:1.5;color:var(--body);font-weight:300;
+  border:1px dashed var(--clr);border-radius:10px;padding:9px 12px}
+.tier-founding b{color:var(--clr);font-weight:500}
+
+/* ============ DIRECTORY / LISTINGS ============ */
+.sample-badge{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--orange);border:1px solid var(--orange);border-radius:30px;padding:4px 11px}
+.listing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,340px));gap:22px;justify-content:center}
+.listing-card{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--edge);
+  border-radius:18px;padding:24px;transition:transform .3s var(--ease),border-color .3s var(--ease)}
+.listing-card:hover{transform:translateY(-4px);border-color:var(--clr,var(--mint))}
+.listing-card h3{font-family:var(--serif);color:var(--white);font-weight:500;font-size:22px;line-height:1.15}
+.listing-card p{color:var(--muted);font-size:14px;font-weight:300}
+.listing-card .pill{align-self:flex-start}
+.listing-meta{list-style:none;display:grid;gap:8px;margin-top:6px;color:var(--body);font-size:14px}
+.listing-meta b{color:var(--muted);font-weight:400;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-right:8px}
 .tier-feats{list-style:none;display:grid;gap:12px;margin-bottom:24px}
 .tier-feats li{display:flex;gap:11px;align-items:flex-start;color:var(--body);font-size:14px;line-height:1.5}
 .tier-feats svg{flex:none;margin-top:3px;color:var(--clr)}

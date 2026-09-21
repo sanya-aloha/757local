@@ -1,4 +1,4 @@
-# 757 Local Trading Co. merchant directory tiers, edit prices/features here;
+# 757 Local directory tiers, edit prices/features here;
 # the homepage and /partners pricing tables both read from this file.
 - tag: "Entry Tier"
   name: "VENDOR"
@@ -9,7 +9,7 @@
   blurb: "A card listing in the directory. Simple discovery, zero friction to get started."
   cta: "Start at $22"
   features:
-    - "Card listing in the 757 Local B2B directory"
+    - "Card listing in the 757 Local directory"
     - "Business name, category & description"
     - "Direct phone number and website link"
     - "Discoverable by AI answer engines and search"
@@ -20,12 +20,13 @@
   cadence: "/mo"
   accent: "orange"
   featured: true
-  blurb: "A dedicated full page, plus the NFC integration that turns your register into a concierge order point."
+  founding_price: 49
+  founding_spots: 25
+  blurb: "A dedicated full page, built and managed for you, so AI tools and search can find and cite your business."
   cta: "Become a Founder"
   features:
-    - "Everything in VENDOR, plus a dedicated full merchant page"
-    - "Custom acrylic NFC/QR counter stand for your register"
-    - "NFC lets concierge retainer clients request pickup & delivery on the spot"
-    - "Social spotlight across the 757 Local channels"
-    - "Monthly placement in The 757 Reserve print newsletter"
-    - "Preferred supplier status into the concierge fleet order flow"
+    - "Everything in VENDOR, plus a dedicated full page"
+    - "Page written and built by our marketing team"
+    - "AI-readable structured data and local SEO"
+    - "Two press releases per year, written and distributed for you"
+    - "Monthly AI visibility report: what ChatGPT, Perplexity & Gemini say about you"

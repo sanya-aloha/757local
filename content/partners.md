@@ -1,5 +1,5 @@
 ---
-title: "Partner With 757 Local"
-description: "Get your Hampton Roads business listed and cited by AI search. Two tiers from $22/mo: VENDOR card listing or FOUNDER full page with NFC-powered concierge integration."
+title: "Get Listed on 757 Local"
+description: "Get your Hampton Roads business listed and found by AI search. Card listings from $22/mo, or a full page built and managed for you."
 layout: partners
 ---

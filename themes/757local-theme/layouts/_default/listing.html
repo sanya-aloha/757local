@@ -1,0 +1,64 @@
+{{ define "schema" }}
+{{ if not .Params.sample }}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":{{ .Title | jsonify }},
+  "description":{{ .Description | jsonify }},
+  "telephone":{{ .Params.phone | jsonify }},
+  "url":{{ .Params.website | jsonify }},
+  "address":{"@type":"PostalAddress","addressLocality":{{ .Params.city | jsonify }},"addressRegion":"VA"}
+}
+</script>
+{{ end }}
+{{ end }}
+
+{{ define "main" }}
+
+<section class="sec" style="padding-top:72px">
+  <div class="container" style="max-width:760px">
+    <p class="reveal in"><a href="/directory/" style="color:var(--muted);font-size:13px">&larr; Back to the directory</a></p>
+
+    <div class="reveal in" style="margin-top:22px">
+      {{ if .Params.sample }}<span class="sample-badge">Sample listing &middot; example of a FOUNDER page</span>{{ end }}
+      <h1 class="h1" style="font-size:clamp(34px,6vw,58px);margin-top:18px">{{ .Title }}</h1>
+      <span class="pill" style="margin-top:14px;display:inline-block">{{ .Params.category }}</span>
+      <p class="sub" style="margin-top:20px;text-align:left;max-width:none">{{ .Description }}</p>
+    </div>
+
+    <ul class="listing-meta" style="margin-top:26px">
+      <li><b>City</b>{{ .Params.city }}, VA</li>
+      <li><b>Phone</b>{{ .Params.phone }}</li>
+      <li><b>Website</b>{{ .Params.website }}</li>
+    </ul>
+
+    {{ if .Params.sample }}
+    <div class="product-card" style="margin-top:44px">
+      <div class="terminal">
+        <div class="q">What AI reads on every FOUNDER page</div>
+        <div class="ai" style="font-family:ui-monospace,monospace;font-size:12.5px;line-height:1.6;white-space:pre-wrap">{
+  "@type": "LocalBusiness",
+  "name": "{{ .Title }}",
+  "description": "{{ .Description }}",
+  "telephone": "{{ .Params.phone }}",
+  "address": { "addressLocality": "{{ .Params.city }}", "addressRegion": "VA" }
+}</div>
+        <div class="cite">&#9671; structured data is built into every FOUNDER page by our team</div>
+      </div>
+    </div>
+
+    <div class="b2b-band" style="margin-top:44px">
+      <div class="b2b-copy">
+        <div class="kicker">Want a page like this?</div>
+        <p class="sec-sub" style="margin-top:0">Our marketing team writes, builds and manages it for you.</p>
+      </div>
+      <div class="b2b-action">
+        <a href="/partners#apply" class="btn btn-primary">Apply to Be Listed <span class="arrow">→</span></a>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

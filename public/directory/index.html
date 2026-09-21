@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ if .IsHome }}{{ .Site.Title }} | {{ .Site.Params.description }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <title>The 757 Local Directory | 757 Local</title>
+  <meta name="description" content="Curated local makers, artisans and independent businesses across Hampton Roads, built to be found by AI search." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,500&family=Outfit:wght@200;300;400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet" />
-  {{ $css := resources.Get "css/main.css" }}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+  
+  <link rel="stylesheet" href="/css/main.css" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -22,11 +22,11 @@
     "knowsAbout":["Local Business Directory","AI Search Visibility","Local SEO","Wine & Spirits","Farm & Fresh Goods","Handmade & Artisan Goods"]
   }
   </script>
-  {{ block "schema" . }}{{ end }}
+  
 </head>
 <body>
 
-<!-- signature shooting lines -->
+
 <div class="beams" aria-hidden="true">
   <span class="beam-v" style="--c:var(--fuchsia);--d:9s;--delay:0s;left:18%"></span>
   <span class="beam-v" style="--c:var(--cyan);--d:13s;--delay:3s;left:62%"></span>
@@ -55,7 +55,87 @@
   </header>
 
   <main>
-    {{ block "main" . }}{{ end }}
+    
+
+<section class="hero p-hero" id="top" style="padding-bottom:40px">
+  <div class="container">
+    <div class="hero-eyebrow kicker reveal">The Directory <span class="dot">/</span> Hampton Roads</div>
+    <h1 class="h1 reveal" style="margin-top:18px">Find the makers <em>behind the 757.</em></h1>
+    <p class="sub reveal">Curated local makers, artisans and independent businesses. Every listing is built to be read by AI search, so the right customers find the right maker.</p>
+    <p class="reveal" style="margin-top:18px"><span class="sample-badge">Launch preview &middot; sample listings shown</span></p>
+  </div>
+</section>
+
+<section class="sec" id="listings" style="padding-top:20px">
+  <div class="container">
+    <div class="listing-grid stagger">
+      
+      <a class="listing-card" href="/directory/sample-back-bay-farm/" style="--clr:var(--mint);text-decoration:none">
+        <span class="sample-badge" style="align-self:flex-start">Sample listing</span>
+        <h3>Back Bay Farm</h3>
+        <span class="pill">Farm &amp; Fresh</span>
+        <p>Seasonal produce, pasture-raised eggs and farm boxes from a working Back Bay farm.</p>
+        <ul class="listing-meta">
+          <li><b>City</b>Virginia Beach</li>
+        </ul>
+      </a>
+      
+      <a class="listing-card" href="/directory/sample-chesapeake-cellars/" style="--clr:var(--mint);text-decoration:none">
+        <span class="sample-badge" style="align-self:flex-start">Sample listing</span>
+        <h3>Chesapeake Cellars</h3>
+        <span class="pill">Wine &amp; Spirits</span>
+        <p>Small-batch Virginia wines and tasting flights from a family-run cellar.</p>
+        <ul class="listing-meta">
+          <li><b>City</b>Chesapeake</li>
+        </ul>
+      </a>
+      
+      <a class="listing-card" href="/directory/sample-lynnhaven-woodworks/" style="--clr:var(--mint);text-decoration:none">
+        <span class="sample-badge" style="align-self:flex-start">Sample listing</span>
+        <h3>Lynnhaven Woodworks</h3>
+        <span class="pill">Makers &amp; Artisans</span>
+        <p>Custom solid-wood tables and cabinetry built to order from locally sourced hardwood.</p>
+        <ul class="listing-meta">
+          <li><b>City</b>Virginia Beach</li>
+        </ul>
+      </a>
+      
+      <a class="listing-card" href="/directory/sample-oceanfront-leather/" style="--clr:var(--mint);text-decoration:none">
+        <span class="sample-badge" style="align-self:flex-start">Sample listing</span>
+        <h3>Oceanfront Leather Co.</h3>
+        <span class="pill">Makers &amp; Artisans</span>
+        <p>Full-grain leather bags, belts and wallets, cut and stitched by hand in Norfolk.</p>
+        <ul class="listing-meta">
+          <li><b>City</b>Norfolk</li>
+        </ul>
+      </a>
+      
+      <a class="listing-card" href="/directory/sample-tidewater-ceramics/" style="--clr:var(--mint);text-decoration:none">
+        <span class="sample-badge" style="align-self:flex-start">Sample listing</span>
+        <h3>Tidewater Ceramics</h3>
+        <span class="pill">Makers &amp; Artisans</span>
+        <p>Hand-thrown stoneware dinnerware and commissioned pieces, fired in small batches in a Virginia Beach studio.</p>
+        <ul class="listing-meta">
+          <li><b>City</b>Virginia Beach</li>
+        </ul>
+      </a>
+      
+    </div>
+
+    <div class="b2b-band reveal" style="margin-top:64px">
+      <div class="b2b-copy">
+        <div class="kicker">Own a 757 Business? <span class="dot">&middot;</span> Get Listed</div>
+        <h2 class="sec-title">Your business could be <em>right here.</em></h2>
+        <p class="sec-sub">Card listings from <b>$22/mo</b>. Full pages, built and managed for you, from <b>$49/mo</b> founding rate.</p>
+      </div>
+      <div class="b2b-action">
+        <a href="/partners#apply" class="btn btn-primary">Apply to Be Listed <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
   </main>
 
   <footer>
@@ -72,7 +152,7 @@
       <div class="meta">
         <p class="foot-cities">Virginia Beach | Norfolk | Chesapeake | Suffolk | Portsmouth | Hampton | Newport News</p>
         <p style="margin-top:8px"><a href="/partners">Listing Packages</a> &middot; <a href="/directory/">Directory</a> &middot; <a href="/#agency">How It Works</a></p>
-        <p style="margin-top:14px;opacity:.6">&copy; {{ now.Year }} 757 Local Trading Co.</p>
+        <p style="margin-top:14px;opacity:.6">&copy; 2026 757 Local Trading Co.</p>
       </div>
     </div>
   </footer>
@@ -80,20 +160,20 @@
 </div>
 
 <script>
-/* scroll reveals */
+ 
 const io = new IntersectionObserver((es)=>{
   es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 },{threshold:.16});
 document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
 
-/* hero loads immediately, staggered */
+ 
 window.addEventListener('load',()=>{
   document.querySelectorAll('.hero .reveal').forEach((el,i)=>{
     setTimeout(()=>el.classList.add('in'), 120 + i*110);
   });
 });
 
-/* ---- Promo carousels (homepage only) ---- */
+ 
 (function(){
   if (!document.getElementById('promo-hero-band')) return;
 
@@ -246,7 +326,7 @@ window.addEventListener('load',()=>{
     .catch(function(){});
 })();
 
-/* custom lead forms -> /api/lead -> GHL */
+ 
 document.querySelectorAll('form.lead-form').forEach(function(f){
   f.addEventListener('submit', async function(e){
     e.preventDefault();

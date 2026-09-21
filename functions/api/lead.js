@@ -61,6 +61,7 @@ const SECTOR_TAG = {
 const TIER_TAG = {
   "VENDOR ($22/mo)": "757ltc:billing:vendor-22",
   "FOUNDER ($99/mo)": "757ltc:billing:founder-99",
+  "FOUNDER Founding Rate ($49/mo)": "757ltc:billing:founder-founding-49",
 };
 
 const json = (obj, status = 200) =>

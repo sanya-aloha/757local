@@ -406,6 +406,11 @@ footer{border-top:1px solid var(--edge-soft);padding:64px 0 50px;margin-top:40px
   background:transparent}
 .tier-cta:hover{background:var(--clr);color:#1a0010;transform:translateY(-2px)}
 .tier-featured .tier-cta{background:var(--clr);color:#1a0010;box-shadow:0 0 36px -8px var(--clr)}
+.tier-coming-soon{opacity:.7}
+.tier-flag.tier-flag-soon{background:transparent;border:1px solid var(--clr);color:var(--clr)}
+.tier-cta-soon{margin-top:auto;justify-content:center;width:100%;border:1px dashed var(--edge);
+  color:var(--muted);background:transparent;cursor:default;pointer-events:none}
+.tier-cta-soon:hover{background:transparent;color:var(--muted);transform:none}
 
 .vendor-optin{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;
   margin-top:36px;border:1px solid var(--edge);border-radius:16px;padding:26px 32px;

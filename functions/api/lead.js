@@ -53,10 +53,10 @@ const LTC_NICHE_TAG = {
 
 // Map the site's sector / tier labels to their tags
 const SECTOR_TAG = {
-  "Wellness & Boutique Fitness": "757-wellness",
-  "Local Eateries & Cafes": "757-eateries",
-  "Small Farmers & Growers": "757-farmers",
-  "Independent Craftsmen & Makers": "757-makers",
+  "Wine & Spirits": "757ltc:category:wine-spirits",
+  "Farm & Fresh": "757ltc:category:farm-fresh",
+  "Makers & Artisans": "757ltc:category:makers-artisans",
+  "General & Everything Else": "757ltc:category:general",
 };
 const TIER_TAG = {
   "VENDOR ($22/mo)": "757ltc:billing:vendor-22",

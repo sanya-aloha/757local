@@ -117,8 +117,9 @@
     </div>
     <div class="tier-grid stagger">
       {{ range .Site.Data.tiers }}
-      <article class="tier{{ if .featured }} tier-featured{{ end }}" style="--clr:var(--{{ .accent }})">
-        {{ if .featured }}<div class="tier-flag">Most Popular</div>{{ end }}
+      <article class="tier{{ if .featured }} tier-featured{{ end }}{{ if .coming_soon }} tier-coming-soon{{ end }}" style="--clr:var(--{{ .accent }})">
+        {{ if .coming_soon }}<div class="tier-flag tier-flag-soon">Coming Soon</div>
+        {{ else if .featured }}<div class="tier-flag">Most Popular</div>{{ end }}
         <div class="tier-tag">{{ .tag }}</div>
         <h3 class="tier-name">{{ .name }}</h3>
         <div class="tier-price"><span class="c">$</span>{{ .price }}<span class="cad">{{ .cadence }}</span></div>
@@ -135,7 +136,11 @@
           </li>
           {{ end }}
         </ul>
+        {{ if .coming_soon }}
+        <span class="btn tier-cta-soon">Coming Soon</span>
+        {{ else }}
         <a href="#apply" class="btn tier-cta">{{ .cta }} <span class="arrow">→</span></a>
+        {{ end }}
       </article>
       {{ end }}
     </div>
@@ -186,27 +191,18 @@
               <input id="b-phone" name="phone" type="tel" placeholder="(757) 000-0000" required />
             </div>
           </div>
-          <div class="row">
-            <div class="field">
-              <label for="b-sector">Your Sector</label>
-              <select id="b-sector" name="business_sector" required>
-                <option value="" disabled selected>Select one</option>
-                <option value="Wellness &amp; Boutique Fitness">Wellness &amp; Boutique Fitness</option>
-                <option value="Local Eateries &amp; Cafes">Local Eateries &amp; Cafes</option>
-                <option value="Small Farmers &amp; Growers">Small Farmers &amp; Growers</option>
-                <option value="Independent Craftsmen &amp; Makers">Independent Craftsmen &amp; Makers</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="b-tier">Listing of Interest</label>
-              <select id="b-tier" name="partner_tier" required>
-                <option value="" disabled selected>Select a listing</option>
-                <option value="VENDOR ($22/mo)">VENDOR &middot; Card Listing ($22/mo)</option>
-                <option value="FOUNDER Founding Rate ($49/mo)">FOUNDER &middot; Founding Rate ($49/mo)</option>
-                <option value="FOUNDER ($99/mo)">FOUNDER &middot; Full Page ($99/mo)</option>
-              </select>
-            </div>
+          <div class="field">
+            <label for="b-sector">Category</label>
+            <select id="b-sector" name="business_sector" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="Wine &amp; Spirits">Wine &amp; Spirits</option>
+              <option value="Farm &amp; Fresh">Farm &amp; Fresh</option>
+              <option value="Makers &amp; Artisans">Makers &amp; Artisans</option>
+              <option value="General &amp; Everything Else">General &amp; Everything Else</option>
+            </select>
           </div>
+          <!-- Only VENDOR is on sale right now, so it's fixed rather than a choice. -->
+          <input type="hidden" name="partner_tier" value="VENDOR ($22/mo)" />
           <div class="field">
             <label for="b-msg">What do you make or sell? (optional)</label>
             <textarea id="b-msg" name="message" placeholder="A sentence or two about your business and your customers"></textarea>

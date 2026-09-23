@@ -19,9 +19,12 @@
   price: 99
   cadence: "/mo"
   accent: "orange"
-  featured: true
-  founding_price: 49
-  founding_spots: 25
+  featured: false
+  coming_soon: true
+  # founding_price/founding_spots paused along with the tier itself.
+  # Restore both when FOUNDER goes on sale.
+  # founding_price: 49
+  # founding_spots: 25
   blurb: "A dedicated full page, built and managed for you, so AI tools and search can find and cite your business."
   cta: "Become a Founder"
   features:

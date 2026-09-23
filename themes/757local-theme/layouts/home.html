@@ -76,8 +76,9 @@
     </div>
     <div class="tier-grid stagger">
       {{ range .Site.Data.tiers }}
-      <article class="tier{{ if .featured }} tier-featured{{ end }}" style="--clr:var(--{{ .accent }})">
-        {{ if .featured }}<div class="tier-flag">Most Popular</div>{{ end }}
+      <article class="tier{{ if .featured }} tier-featured{{ end }}{{ if .coming_soon }} tier-coming-soon{{ end }}" style="--clr:var(--{{ .accent }})">
+        {{ if .coming_soon }}<div class="tier-flag tier-flag-soon">Coming Soon</div>
+        {{ else if .featured }}<div class="tier-flag">Most Popular</div>{{ end }}
         <div class="tier-tag">{{ .tag }}</div>
         <h3 class="tier-name">{{ .name }}</h3>
         <div class="tier-price"><span class="c">$</span>{{ .price }}<span class="cad">{{ .cadence }}</span></div>
@@ -94,7 +95,11 @@
           </li>
           {{ end }}
         </ul>
+        {{ if .coming_soon }}
+        <span class="btn tier-cta-soon">Coming Soon</span>
+        {{ else }}
         <a href="/partners#apply" class="btn tier-cta">{{ .cta }} <span class="arrow">→</span></a>
+        {{ end }}
       </article>
       {{ end }}
     </div>

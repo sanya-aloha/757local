@@ -56,6 +56,7 @@ const SECTOR_TAG = {
   "Wine & Spirits": "757ltc:category:wine-spirits",
   "Farm & Fresh": "757ltc:category:farm-fresh",
   "Makers & Artisans": "757ltc:category:makers-artisans",
+  "Service Provider": "757ltc:category:service-provider",
   "General & Everything Else": "757ltc:category:general",
 };
 const TIER_TAG = {
